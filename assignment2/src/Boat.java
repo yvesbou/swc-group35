@@ -1,28 +1,64 @@
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 public class Boat{
     BoatTypes boatType;
     int boatLength;
     int maxNumberBoats;
     int numberBoats;
 
-    private void setBoatLength(BoatTypes boatType){
-        if (boatType == "CARRIER"){
 
+    private void BoatRules(BoatTypes boatType){
+        if (boatType.toString() == BoatTypes.CARRIER.toString()){
+            boatLength = 6;
+            maxNumberBoats = 1;
+        }
+        else if (boatType.toString() == BoatTypes.BATTLESHIP.toString()){
+            boatLength = 4;
+            maxNumberBoats = 2;
+        }
+
+        else if (boatType.toString() == BoatTypes.SUBMARINE.toString()){
+            boatLength = 3;
+            maxNumberBoats = 3;
+        }
+        else{
+            boatLength = 2;
+            maxNumberBoats = 4;
         }
     }
 
-    /*
-    private static
-    HashMap<String, Integer> Length = new HashMap<String, Integer>();
-    CARRIER, BATTLESHIP, SUBMARINE, PATROLBOAT
-    Length.put(this.BoatTypes, 185);
-    Length.put("Battle") */
+    public int BoatCounter(BoatTypes boatType){
+
+        if (boatType.toString() == BoatTypes.CARRIER.toString()){
+            int boatcount ++;
+            maxNumberBoats = 1;
+        }
+        else if (boatType.toString() == BoatTypes.BATTLESHIP.toString()){
+            boatLength = 4;
+            maxNumberBoats = 2;
+        }
+
+        else if (boatType.toString() == BoatTypes.SUBMARINE.toString()){
+            boatLength = 3;
+            maxNumberBoats = 3;
+        }
+        else{
+            boatLength = 2;
+            maxNumberBoats = 4;
+        }
+
+        return 0;
+    };
+
+
 
     public Boat(BoatTypes BoatType){
         this.boatType = BoatType;
-        setBoatLength();
+        BoatRules(boatType);
+        BoatCounter(boatType);
 
     }
 }
