@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 public class Cell {
@@ -62,10 +63,11 @@ public class Cell {
         return rowCoord;
     }
 
-    public char[] columnCoordinates(){
+    public ArrayList<Character> columnCoordinates(){
 
         char [] columns = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-        char [] columnCoord = new char[0]; // use arraylist instead because Idk length
+        //char [] columnCoord = new char[0]; // use arraylist instead because Idk length
+        ArrayList<Character> columnCoord = new ArrayList<Character>();
         // slice the part of the alphabet
         boolean checker = false;
         for (char c:columns) {
@@ -73,11 +75,13 @@ public class Cell {
                 checker = true;
             };
             if (checker){
-                columnCoord[0] = c;
+                columnCoord.add(c);
+            }
+            if (c == getColumnEnd()){
+                checker = false;
             }
         }
 
-        char [] columnCoord =CharStream.range(getColumnStart(), getColumnEnd()).toArray();;
         return columnCoord;
     }
 }
