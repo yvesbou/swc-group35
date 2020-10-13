@@ -1,0 +1,3 @@
+public enum BoatTypes {
+    CARRIER, BATTLESHIP, SUBMARINE, PATROLBOAT
+}
