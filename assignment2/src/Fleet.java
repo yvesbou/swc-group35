@@ -17,13 +17,13 @@ public class Fleet {
             for (int j = 0; j< number;j++){
                 switch(ship){
                     case "Battleship":
-                        fleet[counter] = new BattleShip(board);
+                        fleet[counter] = new BattleShip( board);
                     case "Submarine":
                         fleet[counter] = new Submarine(board);
                     case "Carrier":
                         fleet[counter]=new Carrier(board);
                     case "PatrolBoat":
-                        fleet[counter] = new PatrolBoat(board);
+                        fleet[counter] = new PatrolBoat( board);
 
                 }
             }

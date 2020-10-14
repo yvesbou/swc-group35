@@ -4,65 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public interface Boat{
-    /*
-    int boatLength;
-    int maxNumberBoats;
-    int numberBoats; */
-
-
-    void markCells();
-
-    /*
-    private void BoatRules(BoatTypes boatType){
-        if (boatType.toString() == BoatTypes.CARRIER.toString()){
-            boatLength = 6;
-            maxNumberBoats = 1;
-        }
-        else if (boatType.toString() == BoatTypes.BATTLESHIP.toString()){
-            boatLength = 4;
-            maxNumberBoats = 2;
-        }
-
-        else if (boatType.toString() == BoatTypes.SUBMARINE.toString()){
-            boatLength = 3;
-            maxNumberBoats = 3;
-        }
-        else{
-            boatLength = 2;
-            maxNumberBoats = 4;
-        }
-    }
-
-    public int BoatCounter(BoatTypes boatType){
-
-        if (boatType.toString() == BoatTypes.CARRIER.toString()){
-            int boatcount ++;
-            maxNumberBoats = 1;
-        }
-        else if (boatType.toString() == BoatTypes.BATTLESHIP.toString()){
-            boatLength = 4;
-            maxNumberBoats = 2;
-        }
-
-        else if (boatType.toString() == BoatTypes.SUBMARINE.toString()){
-            boatLength = 3;
-            maxNumberBoats = 3;
-        }
-        else{
-            boatLength = 2;
-            maxNumberBoats = 4;
-        }
-
-        return 0;
-    };
+    //private Cell cell;
+    boolean checkEmpty(Cell cell);
+    void markCells(int[] userCommand);
+    public boolean checkValidity(int[] userCommand);
 
 
 
-    public Boat(BoatTypes BoatType){
-        this.boatType = BoatType;
-        BoatRules(boatType);
-        BoatCounter(boatType);
-
-    } */
 }
 
