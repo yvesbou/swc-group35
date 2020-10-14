@@ -3,29 +3,50 @@ import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 public class Cell {
-    private Boat boat;
+    private char boat;
+    private int row;
+    private int column;
+    private boolean empty = true;
+
+    /*
     private int rowStart;
     private int rowEnd;
     private char columnStart;
-    private char columnEnd;
+    private char columnEnd; */
 
-    public Cell(int rowStart, int rowEnd, char columnStart, char columnEnd, Boat boat)
+    public Cell(int row, char column)
     {
-        this.setBoat(boat);
-        this.setRow(rowStart, rowEnd);
-        this.setColumn(columnStart, columnEnd);
+
+        this.setRow(row);
+        this.setColumn(column);
     }
 
-    public Boat getBoat()
+    // SETTERS //
+    public void setRow(int row){
+        this.row = row;
+    }
+
+    public void setColumn(int column){
+        this.column = column;
+    }
+
+    public void setBoat(char boat){
+        this.boat = boat;
+    }
+
+    // GETTERS //
+    public char getBoat()
     {
         return this.boat;
     }
 
-    public void setBoat(Boat p)
+    public boolean getState()
     {
-        this.boat = p;
+        return this.empty;
     }
 
+
+    /*
     public int getRowStart()
     {
         return this.rowStart;
@@ -85,4 +106,6 @@ public class Cell {
 
         return columnCoord;
     }
+
+     */
 }

@@ -3,15 +3,18 @@ package src;
 import java.util.HashMap;
 import java.util.Map;
 
-
-
 public interface Boat{
-    BoatTypes boatType;
+    /*
     int boatLength;
     int maxNumberBoats;
-    int numberBoats;
+    int numberBoats; */
 
+    boolean checkEmpty();
+    boolean checkValidity();
+    String getUserCommand();
+    Cell[] getCells();
 
+    /*
     private void BoatRules(BoatTypes boatType){
         if (boatType.toString() == BoatTypes.CARRIER.toString()){
             boatLength = 6;
@@ -62,6 +65,6 @@ public interface Boat{
         BoatRules(boatType);
         BoatCounter(boatType);
 
-    }
+    } */
 }
 
