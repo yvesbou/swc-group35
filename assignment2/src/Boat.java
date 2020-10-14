@@ -9,10 +9,8 @@ public interface Boat{
     int maxNumberBoats;
     int numberBoats; */
 
-    boolean checkEmpty();
-    boolean checkValidity();
-    String getUserCommand();
-    Cell[] getCells();
+
+    void markCells();
 
     /*
     private void BoatRules(BoatTypes boatType){

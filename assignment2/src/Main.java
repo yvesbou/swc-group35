@@ -4,6 +4,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         System.out.println("Hello World");
+        Board board = new Board();
+        Fleet fleet = new Fleet(board);
 
         /* Flow:
         -> initialize board and its rules

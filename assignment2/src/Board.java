@@ -2,6 +2,8 @@ package src;
 
 import java.lang.Exception;
 
+//todo: consider making board to parent of fleet, battleship etc.
+
 public class Board {
     private int numCols=10;
     private int numRows=10;

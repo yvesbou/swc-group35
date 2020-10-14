@@ -14,7 +14,7 @@ public class Cell {
     private char columnStart;
     private char columnEnd; */
 
-    public Cell(int row, char column)
+    public Cell(int row, int column)
     {
 
         this.setRow(row);
@@ -32,6 +32,10 @@ public class Cell {
 
     public void setBoat(char boat){
         this.boat = boat;
+    }
+
+    public void setState(boolean empty){
+        this.empty = empty;
     }
 
     // GETTERS //
