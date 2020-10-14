@@ -5,18 +5,21 @@ public class BattleShip implements Boat{
     private Cell [] cells;
     //private Cell cell;
     private Board board;
-    private Messenger messenger;
+    private Messenger messenger = new Messenger();
+    int instanceNumber;
 
     // constructor //
-    public BattleShip(Board board){
+    public BattleShip(Board board,int instanceNumber){
         this.board = board;
         boolean userInput = false;
         boolean validity;
         boolean Empty = true;
+        this.instanceNumber=instanceNumber;
+
 
         while(!userInput){
             int[] userCommand;
-            userCommand = messenger.getUserCommand();
+            userCommand = messenger.getUserCommand("Battleship",instanceNumber);
             
             validity = checkValidity(userCommand);
             if (!validity){

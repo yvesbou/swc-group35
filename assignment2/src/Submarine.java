@@ -5,10 +5,10 @@ public class Submarine implements Boat{
     private Cell [] cells;
     //private Cell cell;
     private Board board;
-    private Messenger messenger;
+    private Messenger messenger = new Messenger();
 
     // constructor //
-    public Submarine(Board board){
+    public Submarine(Board board,int instanceNumber){
         this.board = board;
         boolean userInput = false;
         boolean validity;
@@ -16,7 +16,7 @@ public class Submarine implements Boat{
 
         while(!userInput){
             int[] userCommand;
-            userCommand = messenger.getUserCommand();
+            userCommand = messenger.getUserCommand("Submarine",instanceNumber);
 
             validity = checkValidity(userCommand);
             if (!validity){

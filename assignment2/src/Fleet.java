@@ -8,24 +8,26 @@ public class Fleet {
     private Board board;
     public Fleet(Board board){
         this.board = board;
+        createFleet();
     }
     Boat[] fleet= new Boat[totalBoats];
     public void createFleet(){
         for ( int i = 0 ; i< numbers.length;i++ ){
             int number = numbers[i];
             String ship = ships[i];
-            for (int j = 0; j< number;j++){
+            for (int j = 1; j <= number;j++){
                 switch(ship){
                     case "Battleship":
-                        fleet[counter] = new BattleShip( board);
+                        fleet[counter] = new BattleShip(board,j);
                     case "Submarine":
-                        fleet[counter] = new Submarine(board);
+                        fleet[counter] = new Submarine(board,j);
                     case "Carrier":
-                        fleet[counter]=new Carrier(board);
+                        fleet[counter]=new Carrier(board,j);
                     case "PatrolBoat":
-                        fleet[counter] = new PatrolBoat( board);
-
+                        fleet[counter] = new PatrolBoat( board,j);
                 }
+                counter++;
+
             }
         }
     }

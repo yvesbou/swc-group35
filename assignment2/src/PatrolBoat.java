@@ -5,10 +5,11 @@ public class PatrolBoat implements Boat {
     private Cell [] cells;
     //private Cell cell;
     private Board board;
-    private Messenger messenger;
+    private Messenger messenger = new Messenger();
+    private int instanceNumber;
 
     // constructor //
-    public PatrolBoat(Board board){
+    public PatrolBoat(Board board,int instanceNumber){
         this.board = board;
         boolean userInput = false;
         boolean validity;
@@ -16,7 +17,7 @@ public class PatrolBoat implements Boat {
 
         while(!userInput){
             int[] userCommand;
-            userCommand = messenger.getUserCommand();
+            userCommand = messenger.getUserCommand("PatrolBoat",instanceNumber);
 
             validity = checkValidity(userCommand);
             if (!validity){
