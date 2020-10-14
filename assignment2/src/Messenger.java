@@ -10,11 +10,15 @@ public class Messenger {
         String[] positions = line.split(" ");
         for(int i=0; i<positions.length;i++){
             String str = positions[i];
+            //check
             char a = str.charAt(0);
-            char b = str.charAt(1);
-            userCommand[i] = new String(columns).indexOf(a);
-            userCommand[i+1]= (int)b;
+            String b = str.substring(1);
+            //check
+            userCommand[i+2] = new String(columns).indexOf(a);
+            userCommand[i]= Integer.parseInt(b);
+
         }
         return userCommand;
     }
+
 }

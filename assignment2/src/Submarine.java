@@ -6,13 +6,15 @@ public class Submarine implements Boat{
     //private Cell cell;
     private Board board;
     private Messenger messenger = new Messenger();
+    private int instanceNumber;
+    private int len = 3;
 
     // constructor //
     public Submarine(Board board,int instanceNumber){
         this.board = board;
         boolean userInput = false;
         boolean validity;
-        boolean Empty = true;
+        boolean empty = true;
 
         while(!userInput){
             int[] userCommand;
@@ -23,15 +25,24 @@ public class Submarine implements Boat{
                 continue;
             }
             markCells(userCommand);
-            for (Cell cell:cells){
-                if(checkEmpty(cell)){
-                    Empty = false;
+            for (int i = 0; i < cells.length; i++){
+                Cell cell = cells[i];
+                if(!checkEmpty(cell)){
+                    empty = false;
+                    System.out.println("The Cell " + cell.getCoordinates() +
+                            " is occupied with boatType: "+cell.getBoat() );
                     break;
-                }}
-            if (Empty){
+
+                }
+                else{
+                    empty=true;
+                }
+            }
+            if (empty){
                 for (Cell cell:cells){
                     cell.setBoat('S');
                     cell.setState(false);
+                    userInput = true;
                 }
             }
         }}
@@ -40,7 +51,7 @@ public class Submarine implements Boat{
 
     public boolean checkEmpty(Cell cell){
         boolean output = true;
-        if (!cell.getState()){
+        if (!cell.isEmpty()){
             output = false;
         }
         return output;
@@ -71,11 +82,16 @@ public class Submarine implements Boat{
         endRow = userCommand[1];
         startCol = userCommand[2];
         endCol = userCommand[3];
-
+        if (endRow-startRow+endCol-startCol +1!= len){
+            validity = false;
+            System.out.println("Wrong Boat length");
+        }
         if ((startRow > 9) || (startRow < 0) || (startCol > 9) || (startCol < 0) || (endRow < 0) || (endRow > 9) || (endCol < 0) || (endCol > 9)){
             validity = false;
+            System.out.println("Out of Bounds");
         }
-        if (startRow != endRow && startCol != endCol){
+        if ((startRow != endRow) && (startCol != endCol)){
+            System.out.println("Ship must not be placed diagonally");
             validity = false;
         }
         return validity;

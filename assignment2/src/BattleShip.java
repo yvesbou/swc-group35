@@ -6,44 +6,52 @@ public class BattleShip implements Boat{
     //private Cell cell;
     private Board board;
     private Messenger messenger = new Messenger();
-    int instanceNumber;
+    private int instanceNumber;
+    private int len = 4;
 
     // constructor //
     public BattleShip(Board board,int instanceNumber){
         this.board = board;
         boolean userInput = false;
         boolean validity;
-        boolean Empty = true;
-        this.instanceNumber=instanceNumber;
-
+        boolean empty = false;
 
         while(!userInput){
             int[] userCommand;
-            userCommand = messenger.getUserCommand("Battleship",instanceNumber);
-            
+            userCommand = messenger.getUserCommand("BattleShip",instanceNumber);
+
             validity = checkValidity(userCommand);
             if (!validity){
                 continue;
             }
             markCells(userCommand);
-            for (Cell cell:cells){
-                if(checkEmpty(cell)){
-                    Empty = false;
+            for (int i = 0; i < cells.length; i++){
+                Cell cell = cells[i];
+                if(!checkEmpty(cell)){
+                    empty = false;
+                    System.out.println("The Cell " + cell.getCoordinates() +
+                            " is occupied with boatType: "+cell.getBoat() );
                     break;
-                }}
-            if (Empty){
+
+                }
+                else{
+                    empty = true;
+                }
+            }
+            if (empty){
                 for (Cell cell:cells){
                     cell.setBoat('B');
                     cell.setState(false);
-                }}
-        }
-    }
+                    userInput = true;
+                }
+            }
+        }}
 
 
 
     public boolean checkEmpty(Cell cell){
         boolean output = true;
-        if (!cell.getState()){
+        if (!cell.isEmpty()){
             output = false;
         }
         return output;
@@ -55,11 +63,11 @@ public class BattleShip implements Boat{
         int startCol = userCommand[2];
         int endCol = userCommand[3];
         if (startCol == endCol){
-                cells = board.getCol(startRow,endRow,endCol);
-            }
+            cells = board.getCol(startRow,endRow,endCol);
+        }
         else {
-                cells = board.getRow(startCol,endCol,startRow);
-            }
+            cells = board.getRow(startCol,endCol,startRow);
+        }
 
     }
 
@@ -74,15 +82,18 @@ public class BattleShip implements Boat{
         endRow = userCommand[1];
         startCol = userCommand[2];
         endCol = userCommand[3];
-
+        if (endRow-startRow+endCol-startCol +1 != len){
+            validity = false;
+            System.out.println("Wrong Boat length");
+        }
         if ((startRow > 9) || (startRow < 0) || (startCol > 9) || (startCol < 0) || (endRow < 0) || (endRow > 9) || (endCol < 0) || (endCol > 9)){
             validity = false;
+            System.out.println("Out of Bounds");
         }
-        if (startRow != endRow && startCol != endCol){
+        if ((startRow != endRow) && (startCol != endCol)){
+            System.out.println("Ship must not be placed diagonally");
             validity = false;
         }
         return validity;
     }
-
-
 }

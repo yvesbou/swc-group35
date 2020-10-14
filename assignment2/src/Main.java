@@ -3,9 +3,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args){
-        System.out.println("Hello World");
+        System.out.println("Welcome to Battleship!!");
         Board board = new Board();
         Fleet fleet = new Fleet(board);
+        board.printBoard();
 
         /* Flow:
         -> initialize board and its rules

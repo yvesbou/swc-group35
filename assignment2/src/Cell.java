@@ -3,20 +3,20 @@ import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 public class Cell {
-    private char boat;
+    private char boat = ' ';
     private int row;
     private int column;
     private boolean empty = true;
-
+    private Board board;
     /*
     private int rowStart;
     private int rowEnd;
     private char columnStart;
     private char columnEnd; */
 
-    public Cell(int row, int column)
+    public Cell(int row, int column, Board board)
     {
-
+        this.board= board;
         this.setRow(row);
         this.setColumn(column);
     }
@@ -44,11 +44,16 @@ public class Cell {
         return this.boat;
     }
 
-    public boolean getState()
+    public boolean isEmpty()
     {
         return this.empty;
     }
+    public String getCoordinates(){
+        char colName = board.getColumns()[column];
+        String coord = Character.toString(colName)+Integer.toString(row);
+        return coord;
 
+    }
 
     /*
     public int getRowStart()
