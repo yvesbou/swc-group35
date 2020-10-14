@@ -22,11 +22,9 @@
     <list default="true" id="048900ed-e087-4136-8740-b11772f4fb10" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BattleShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BattleShip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Boat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Boat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Messenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Carrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Carrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PatrolBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatrolBoat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Submarine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Submarine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +97,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602668707176</updated>
-      <workItem from="1602668708286" duration="11917000" />
+      <workItem from="1602668708286" duration="13261000" />
     </task>
     <servers />
   </component>

@@ -1,13 +1,13 @@
 package src;
 
-public class BattleShip {
+public class BattleShip implements Boat{
     //private Cell [][] position;
     private Cell [] cells;
     //private Cell cell;
     private Board board;
     private Messenger messenger;
 
-    // constructor
+    // constructor //
     public BattleShip(Board board){
         this.board = board;
         boolean userInput = false;
@@ -27,14 +27,14 @@ public class BattleShip {
                 if(checkEmpty(cell)){
                     Empty = false;
                     break;
-                };}
+                }}
             if (Empty){
                 for (Cell cell:cells){
                     cell.setBoat('B');
                     cell.setState(false);
-                }
-            }
-}}
+                }}
+        }
+    }
 
 
 
