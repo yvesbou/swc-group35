@@ -5,7 +5,7 @@ import java.util.Map;
 
 
 
-public class Boat{
+public interface Boat{
     BoatTypes boatType;
     int boatLength;
     int maxNumberBoats;
