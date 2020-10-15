@@ -1,6 +1,4 @@
 package src;
-import java.util.ArrayList;
-import java.util.stream.IntStream;
 
 public class Cell {
     private char boat = ' ';
@@ -8,13 +6,7 @@ public class Cell {
     private int column;
     private boolean empty = true;
     private Board board;
-    /*
-    private int rowStart;
-    private int rowEnd;
-    private char columnStart;
-    private char columnEnd; */
-
-    public Cell(int row, int column, Board board)
+    public Cell(int row, int column,Board board)
     {
         this.board= board;
         this.setRow(row);
@@ -39,9 +31,9 @@ public class Cell {
     }
 
     // GETTERS //
-    public char getBoat()
+    public char getBoatType()
     {
-        return this.boat;
+        return boat;
     }
 
     public boolean isEmpty()
@@ -49,72 +41,10 @@ public class Cell {
         return this.empty;
     }
     public String getCoordinates(){
-        char colName = board.getColumns()[column];
+        char colName = board.getColNames()[column];
         String coord = Character.toString(colName)+Integer.toString(row);
         return coord;
 
     }
 
-    /*
-    public int getRowStart()
-    {
-        return this.rowStart;
-    }
-
-    public int getRowEnd()
-    {
-        return this.rowEnd;
-    }
-
-    public void setRow(int rowStart, int rowEnd)
-    {
-        this.rowStart = rowStart;
-        this.rowEnd = rowEnd;
-    }
-
-    public char getColumnStart()
-    {
-        return this.columnStart;
-    }
-
-    public char getColumnEnd()
-    {
-        return this.columnEnd;
-    }
-
-    public void setColumn(char columnStart, char columnEnd)
-    {
-        this.columnStart = columnStart;
-        this.columnEnd = columnEnd;
-    }
-
-    public int[] rowCoordinates(){
-        // start getRowStart, end getRowEnd
-        int [] rowCoord = IntStream.range(getRowStart(), getRowEnd()).toArray();
-        return rowCoord;
-    }
-
-    public ArrayList<Character> columnCoordinates(){
-
-        char [] columns = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-        //char [] columnCoord = new char[0]; // use arraylist instead because Idk length
-        ArrayList<Character> columnCoord = new ArrayList<Character>();
-        // slice the part of the alphabet
-        boolean checker = false;
-        for (char c:columns) {
-            if (c == getColumnStart()){
-                checker = true;
-            };
-            if (checker){
-                columnCoord.add(c);
-            }
-            if (c == getColumnEnd()){
-                checker = false;
-            }
-        }
-
-        return columnCoord;
-    }
-
-     */
 }

@@ -1,8 +1,9 @@
 package src;
 import java.util.Scanner;
-public class Messenger {
-    private char [] columns = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-    public int[] getUserCommand(String boattype,int instanceNumber){
+public abstract class Commander{
+
+    public static int[] getUserCommand(String boattype,int instanceNumber){
+        char [] columns = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
         int [] userCommand = new int[4];
         System.out.println("Please enter the position of your "+boattype+ instanceNumber +":");
         Scanner Input = new Scanner(System.in);

@@ -4,64 +4,62 @@ public class BattleShip implements Boat{
     //private Cell [][] position;
     private Cell [] cells;
     //private Cell cell;
-    private Board board;
-    private Messenger messenger = new Messenger();
     private int instanceNumber;
     private int len = 4;
-
+    private int startRow;
+    private int endRow;
+    private int startCol;
+    private int endCol;
+    private Board board;
     // constructor //
-    public BattleShip(Board board,int instanceNumber){
-        this.board = board;
+    public BattleShip(int instanceNumber,Board board) {
+        this.board=board;
+        this.instanceNumber=instanceNumber;
+        setupBoat();
+    }
+
+
+    private void setupBoat() {
         boolean userInput = false;
         boolean validity;
         boolean empty = false;
-
-        while(!userInput){
+        while (!userInput) {
             int[] userCommand;
-            userCommand = messenger.getUserCommand("BattleShip",instanceNumber);
-
-            validity = checkValidity(userCommand);
-            if (!validity){
+            userCommand = Commander.getUserCommand("BattleShip", instanceNumber);
+            readUserCommand(userCommand);
+            validity = checkValidity();
+            if (!validity) {
                 continue;
             }
-            markCells(userCommand);
-            for (int i = 0; i < cells.length; i++){
-                Cell cell = cells[i];
-                if(!checkEmpty(cell)){
-                    empty = false;
-                    System.out.println("The Cell " + cell.getCoordinates() +
-                            " is occupied with boatType: "+cell.getBoat() );
-                    break;
-
-                }
-                else{
-                    empty = true;
-                }
-            }
-            if (empty){
-                for (Cell cell:cells){
+            markCells();
+            empty = checkEmpty();
+            if (!empty) {
+                break;
+            } else {
+                for (Cell cell : cells) {
                     cell.setBoat('B');
                     cell.setState(false);
                     userInput = true;
                 }
             }
-        }}
-
-
-
-    public boolean checkEmpty(Cell cell){
-        boolean output = true;
-        if (!cell.isEmpty()){
-            output = false;
         }
-        return output;
+    }
+    public boolean checkEmpty() {
+        boolean empty = true;
+        for (int i = 0; i < cells.length; i++) {
+            Cell cell = cells[i];
+            if (!cell.isEmpty()) {
+                empty = false;
+                System.out.println("The Cell " + cell.getCoordinates() +
+                        " is occupied with boatType: " + cell.getBoatType());
+            }
+
+        }
+        return empty;
     }
 
-    public void markCells(int[] userCommand){
-        int startRow = userCommand[0];
-        int endRow = userCommand[1];
-        int startCol = userCommand[2];
-        int endCol = userCommand[3];
+    public void markCells(){
+
         if (startCol == endCol){
             cells = board.getCol(startRow,endRow,endCol);
         }
@@ -70,18 +68,17 @@ public class BattleShip implements Boat{
         }
 
     }
+    public void readUserCommand(int[] userCommand)  {
+            startRow = userCommand[0];
+            endRow = userCommand[1];
+            startCol = userCommand[2];
+            endCol = userCommand[3];
+        }
 
-    public boolean checkValidity(int[] userCommand){
-        int startRow;
-        int endRow;
-        int startCol;
-        int endCol;
+    public boolean checkValidity(){
+
         boolean validity = true;
 
-        startRow = userCommand[0];
-        endRow = userCommand[1];
-        startCol = userCommand[2];
-        endCol = userCommand[3];
         if (endRow-startRow+endCol-startCol +1 != len){
             validity = false;
             System.out.println("Wrong Boat length");
