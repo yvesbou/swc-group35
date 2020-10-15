@@ -1,9 +1,7 @@
 package src;
 
 public class BattleShip implements Boat{
-    //private Cell [][] position;
     private Cell [] cells;
-    //private Cell cell;
     private int instanceNumber;
     private int len = 4;
     private int startRow;
@@ -22,7 +20,7 @@ public class BattleShip implements Boat{
     private void setupBoat() {
         boolean userInput = false;
         boolean validity;
-        boolean empty = false;
+        boolean empty;
         while (!userInput) {
             int[] userCommand;
             userCommand = Commander.getUserCommand("BattleShip", instanceNumber);

@@ -1,9 +1,7 @@
 package src;
 
 public class Submarine implements Boat{
-    //private Cell [][] position;
     private Cell [] cells;
-    //private Cell cell;
     private Board board;
     private int instanceNumber;
     private int len = 3;
@@ -22,7 +20,7 @@ public class Submarine implements Boat{
     private void setupBoat() {
         boolean userInput = false;
         boolean validity;
-        boolean empty = false;
+        boolean empty;
         while (!userInput) {
             int[] userCommand;
             userCommand = Commander.getUserCommand("Submarine", instanceNumber);

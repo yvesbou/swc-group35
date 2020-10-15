@@ -54,7 +54,6 @@ public class Board {
             for(int column=0; column<numCols; column++) {
                 Cell cell = board[row][column];
                 System.out.print("["+cell.getBoatType()+"]");
-                //System.out.println("Boat at cell["+row+"]["+columns[column]+"] is "+board[row][column]);
             }
             System.out.println();
         }

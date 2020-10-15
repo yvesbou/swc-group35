@@ -11,10 +11,8 @@ public abstract class Commander{
         String[] positions = line.split(" ");
         for(int i=0; i<positions.length;i++){
             String str = positions[i];
-            //check
             char a = str.charAt(0);
             String b = str.substring(1);
-            //check
             userCommand[i+2] = new String(columns).indexOf(a);
             userCommand[i]= Integer.parseInt(b);
 

@@ -2,7 +2,7 @@ package src;
 import java.util.*;
 
 public class Main {
-    /* input has to be give in Form:
+    /* input has to be given in Form:
            A0 A5
     the first coordinate must always be smaller, than the last coordinate.
     */

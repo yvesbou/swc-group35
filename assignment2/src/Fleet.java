@@ -1,15 +1,11 @@
 package src;
 
-import javax.sound.midi.SysexMessage;
-
 public class Fleet extends Board{
     private String[] ships={"Carrier","Battleship","Submarine","PatrolBoat"};
     private int[] numbers={1,2,3,4};
-    //private int[] numbers={1,0,0,0};
     private int totalBoats = 10;
     private int counter = 0;
     private Board board;
-    /////private Board board;
     Boat[] fleet= new Boat[totalBoats];
 
     public Fleet(Board board){
