@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="048900ed-e087-4136-8740-b11772f4fb10" name="Default Changelist" comment="" />
+    <list default="true" id="048900ed-e087-4136-8740-b11772f4fb10" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/BattleShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/BattleShip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/Commander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,17 +71,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -92,6 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602668707176</updated>
       <workItem from="1602668708286" duration="13261000" />
+      <workItem from="1603291212548" duration="691000" />
     </task>
     <servers />
   </component>
@@ -108,6 +103,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="461" y="86" key="#com.intellij.ide.util.MemberChooser" timestamp="1602686727601">

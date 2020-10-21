@@ -32,7 +32,7 @@ public class BattleShip implements Boat{
             markCells();
             empty = checkEmpty();
             if (!empty) {
-                break;
+                continue;
             } else {
                 for (Cell cell : cells) {
                     cell.setBoat('B');
