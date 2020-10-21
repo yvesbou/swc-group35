@@ -20,10 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="048900ed-e087-4136-8740-b11772f4fb10" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../assignment3/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/BattleShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/BattleShip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/Carrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/Carrier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/Commander.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/PatrolBoat.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/PatrolBoat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/Submarine.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/Submarine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignment3/src/BattleShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/BattleShip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignment3/src/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/Commander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignment3/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/Carrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/Carrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/HumanPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/PatrolBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/PatrolBoat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/Submarine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/Submarine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

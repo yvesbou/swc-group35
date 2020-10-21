@@ -23,7 +23,7 @@ public class PatrolBoat implements Boat{
         boolean empty;
         while (!userInput) {
             int[] userCommand;
-            userCommand = Commander.getUserCommand("PatrolBoat", instanceNumber);
+            userCommand = HumanPlayer.getUserCommand("PatrolBoat", instanceNumber);
             readUserCommand(userCommand);
             validity = checkValidity();
             if (!validity) {

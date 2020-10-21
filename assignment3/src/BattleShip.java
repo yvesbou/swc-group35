@@ -23,7 +23,7 @@ public class BattleShip implements Boat{
         boolean empty;
         while (!userInput) {
             int[] userCommand;
-            userCommand = Commander.getUserCommand("BattleShip", instanceNumber);
+            userCommand = HumanPlayer.getUserCommand("BattleShip", instanceNumber);
             readUserCommand(userCommand);
             validity = checkValidity();
             if (!validity) {

@@ -23,7 +23,7 @@ public class Carrier implements Boat{
         boolean empty;
         while (!userInput) {
             int[] userCommand;
-            userCommand = Commander.getUserCommand("Carrier", instanceNumber);
+            userCommand = HumanPlayer.getUserCommand("Carrier", instanceNumber);
             readUserCommand(userCommand);
             validity = checkValidity();
             if (!validity) {

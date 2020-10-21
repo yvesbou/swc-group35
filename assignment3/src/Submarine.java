@@ -23,7 +23,7 @@ public class Submarine implements Boat{
         boolean empty;
         while (!userInput) {
             int[] userCommand;
-            userCommand = Commander.getUserCommand("Submarine", instanceNumber);
+            userCommand = HumanPlayer.getUserCommand("Submarine", instanceNumber);
             readUserCommand(userCommand);
             validity = checkValidity();
             if (!validity) {
