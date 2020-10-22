@@ -1,6 +1,18 @@
 package src;
 import java.util.Random;
 public class ComputerPlayer implements Player{
+
+    Fleet fleet;
+    Board board;
+
+    public void getFleet(Fleet fleet){
+        this.fleet = fleet;
+    }
+
+    public void getBoard(Board board){
+        this.board = board;
+    }
+
     //just returns random numbers
     public int[] getShotCommand(){
         int[] shot= new int[2];
@@ -21,8 +33,20 @@ public class ComputerPlayer implements Player{
         return placement;
     };
 
-    public int[] getAttacked(int[] attack){
-        int[] a = {0};
-        return a;
+    public void getAttacked(int[] attack){
+        int col = attack[0];
+        int row = attack[1];
+        Cell cell = board.getCell(col, row);
+        if (cell.isEmpty()){
+            System.out.println("The computer missed");
+        }
+        else{
+            Boat boat = cell.getBoat();
+            if (boat.isDestroyed()){
+                System.out.println("Your %s was destroyed".format(boat.getBoatType()));}
+            System.out.println("Your boat was hit!");
+
+        }
+        cell.setHit();
     }
 }

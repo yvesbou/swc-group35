@@ -8,11 +8,7 @@ public class Main {
     */
     public static void main(String[] args){
         System.out.println("Welcome to Battleship!!");
-        Player humanPlayer= new HumanPlayer();
-        Player computerPlayer= new ComputerPlayer();
         Game game = Game.startGame();
-        game.registerPlayer(humanPlayer);
-        game.registerPlayer(computerPlayer);
         game.play();
     }
 }
