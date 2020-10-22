@@ -8,8 +8,12 @@ public class Main {
     */
     public static void main(String[] args){
         System.out.println("Welcome to Battleship!!");
-
-        board.printBoard();
+        Player humanPlayer= new HumanPlayer();
+        Player computerPlayer= new ComputerPlayer();
+        Game game = new Game();
+        game.registerPlayer(humanPlayer);
+        game.registerPlayer(computerPlayer);
+        game.setupBoards();
     }
 }
 

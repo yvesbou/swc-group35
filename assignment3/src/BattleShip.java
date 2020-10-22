@@ -1,17 +1,13 @@
 package src;
 
 public class BattleShip implements Boat{
+
+    private int len = 4;
+    private String BoatType = "Battleship";
     private Cell [] cells;
     private int instanceNumber;
-    private int len = 4;
-    private int startRow;
-    private int endRow;
-    private int startCol;
-    private int endCol;
-    private Board board;
     // constructor //
-    public BattleShip(int instanceNumber,Board board) {
-        this.board=board;
+    public BattleShip(int instanceNumber) {
         this.instanceNumber=instanceNumber;
     }
     public int getInstanceNumber(){
@@ -20,10 +16,15 @@ public class BattleShip implements Boat{
     public void markCells(Cell [] cells){
         this.cells = cells;
         for (Cell cell : cells) {
-            cell.setBoat('B');
+            cell.setBoat(BoatType.charAt(0));
             cell.setState(false);
         }
 
     }
-
+    public int getLen(){
+        return len;
+    }
+    public String getBoatType(){
+        return BoatType;
+    }
 }
