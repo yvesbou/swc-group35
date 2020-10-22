@@ -1,8 +1,8 @@
 package src;
 
 public interface Player {
-    public int[] getPlacement(String boatType,int instanceNumber);
-    public int[] getShotCommand();
-
+    int[] getPlacement(String boatType,int instanceNumber);
+    int[] getShotCommand();
+    int[] getAttacked(int[] attack);
 
 }

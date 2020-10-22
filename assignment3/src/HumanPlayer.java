@@ -61,5 +61,9 @@ public class HumanPlayer implements Player{
         return shot;
     }
 
+    public int[] getAttacked(int[] attack){
+        
+    }
+
 }
 

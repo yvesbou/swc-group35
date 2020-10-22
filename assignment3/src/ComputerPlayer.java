@@ -20,4 +20,8 @@ public class ComputerPlayer implements Player{
         }
         return placement;
     };
+
+    public int[] getAttacked(int[] attack){
+
+    }
 }

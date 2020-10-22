@@ -10,10 +10,10 @@ public class Main {
         System.out.println("Welcome to Battleship!!");
         Player humanPlayer= new HumanPlayer();
         Player computerPlayer= new ComputerPlayer();
-        Game game = new Game();
+        Game game = Game.startGame();
         game.registerPlayer(humanPlayer);
         game.registerPlayer(computerPlayer);
-        game.setupBoards();
+        game.play();
     }
 }
 
