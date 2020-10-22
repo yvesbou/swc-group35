@@ -15,7 +15,7 @@ public class Carrier implements Boat{
     public void markCells(Cell [] cells){
         this.cells = cells;
         for (Cell cell : cells) {
-            cell.setBoat(BoatType.charAt(0));
+            cell.setBoat(BoatType.charAt(0), this);
             cell.setState(false);
         }
 
@@ -26,4 +26,17 @@ public class Carrier implements Boat{
     public String getBoatType(){
         return BoatType;
     }
+    public boolean isDestroyed(){
+        boolean destroyed=true;
+        for (Cell cell:cells){
+            if (!cell.getHit()){
+                destroyed=false;
+                break;
+            }
+
+        }
+        return destroyed;
+    }
+
+
 }
