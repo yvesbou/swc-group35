@@ -3,8 +3,21 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.*;
 public class HumanPlayer implements Player{
+    private Board board;
+    private Fleet fleet;
     private char[] columns = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-
+    public void setBoard(Board board){
+        this.board = board;
+    }
+    public void setFleet(Fleet fleet){
+        this.fleet = fleet;
+    }
+    public Board getBoard(){
+        return board;
+    }
+    public Fleet getFleet(){
+        return fleet;
+    }
     public int[] getPlacement(String boatType, int instanceNumber) {
 
         int[] userCommand = new int[4];
@@ -28,9 +41,7 @@ public class HumanPlayer implements Player{
                     System.err.println("Try again, wrong input format. Format must be like A0 A5" );
                     continue;// clear scanner wrong input
                 }
-
                     // if no exceptions breaks out of loop
-
             }
 
         for (int i = 0; i < positions.length; i++) {
@@ -59,10 +70,32 @@ public class HumanPlayer implements Player{
         return shot;
     }
 
-    public int[] getAttacked(int[] attack){
-        int[] arr = {1,2};
-        return arr;
+    public boolean isAttackable(int[] attack){
+        int col = attack[0];
+        int row = attack[1];
+        Cell cell = board.getCell(col,row) ;
+        boolean attackable  = cell.getHit();
+        return attackable;
     }
+    public void getAttacked(int[] attack){
+        int col = attack[0];
+        int row = attack[1];
+        Cell cell = board.getCell(col,row);
+        if(cell.isEmpty()){
+            System.out.println("Miss");
+        }
+        else{
+            Boat boat = cell.getBoat();
+            if (boat.isDestroyed()){
+                System.out.println("You destroyed %s".format(boat.getBoatType()));
+            }
+            else {
+                System.out.println("You hit a boat!");
+            }
+        };
+        cell.setHit();
+    }
+
 
 }
 

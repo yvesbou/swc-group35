@@ -1,13 +1,15 @@
 package src;
 
 public class Cell {
-    private char boat = ' ';
+    private char boatType = ' ';
+    private Boat boat;
     private int row;
     private int column;
     private boolean empty = true;
     private Board board;
-    public Cell(int row, int column,Board board)
-    {
+    private boolean gotHit;
+
+    public Cell(int row, int column,Board board) {
         this.board= board;
         this.setRow(row);
         this.setColumn(column);
@@ -22,7 +24,8 @@ public class Cell {
         this.column = column;
     }
 
-    public void setBoat(char boat){
+    public void setBoat(char boatType,Boat boat){
+        this.boatType = boatType;
         this.boat = boat;
     }
 
@@ -30,11 +33,18 @@ public class Cell {
         this.empty = empty;
     }
 
+    public void setHit(){
+        gotHit=true;
+    }
+    public boolean getHit(){
+        return gotHit;
+    }
     // GETTERS //
     public char getBoatType()
     {
-        return boat;
+        return boatType;
     }
+    public Boat getBoat(){ return boat; }
 
     public boolean isEmpty()
     {
