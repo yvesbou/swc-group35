@@ -6,7 +6,7 @@ public class HumanPlayer implements Player{
     private char[] columns = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 
     public int[] getPlacement(String boatType, int instanceNumber) {
-        char[] columns = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+
         int[] userCommand = new int[4];
         String line;
         String[] positions;
@@ -25,23 +25,21 @@ public class HumanPlayer implements Player{
                     break;
                 }
                 catch (InputMismatchException e) { //if an exception appears prints message below
-                    System.err.println("Try again, wrong format" + e.getMessage());
-                    Input.next(); // clear scanner wrong input
+                    System.err.println("Try again, wrong input format. Format must be like A0 A5" );
+                    continue;// clear scanner wrong input
                 }
-
-                System.out.println(positions.length);
 
                     // if no exceptions breaks out of loop
 
             }
 
         for (int i = 0; i < positions.length; i++) {
-            System.out.println(positions.length);
+
             String str = positions[i];
             char a = str.charAt(0);
             String b = str.substring(1);
-            userCommand[i] = new String(columns).indexOf(a);
-            userCommand[i + 1] = Integer.parseInt(b);
+            userCommand[2*i] = new String(columns).indexOf(a);
+            userCommand[2*i + 1] = Integer.parseInt(b);
             //Format: startColumn startRow endColumn endRow
         }
         return userCommand;
@@ -62,7 +60,8 @@ public class HumanPlayer implements Player{
     }
 
     public int[] getAttacked(int[] attack){
-
+        int[] arr = {1,2};
+        return arr;
     }
 
 }
