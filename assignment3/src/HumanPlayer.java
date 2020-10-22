@@ -62,7 +62,7 @@ public class HumanPlayer implements Player{
     }
 
     public int[] getAttacked(int[] attack){
-        
+
     }
 
 }

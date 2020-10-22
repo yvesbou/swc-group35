@@ -46,19 +46,22 @@ public class Game {
         setupBoards();
         while(true){
             Iterator it = players.iterator();
+            Player Player1 = (Player) it.next();
+            Player Player2 = (Player) it.next();
             while(it.hasNext()) {
                 // first players attack
-                player = (Player) it.next();
-                attack = player.getShotCommand();
-                player = (Player) it.next();
-                player.getAttacked(attack);
+
+                attack = Player1.getShotCommand();
+                Player2.getAttacked(attack);
 
                 // second players attack
 
+                attack = Player2.getShotCommand();
+                Player1.getAttacked(attack);
 
 
         }
         // pass attack from one player to the other player check if hit and then pass success back
     }
 
-}
+}}
