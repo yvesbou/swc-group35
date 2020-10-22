@@ -34,6 +34,9 @@ public class Game {
     // observer design pattern
     public void registerDisplay(Display newDisplay){displays.add(newDisplay);}
     public void removeDisplay(Display newDisplay){displays.remove(newDisplay);}
+    public void notifyDisplay(){
+
+    }
 
     // possibly rename since not in observer design pattern
 
@@ -44,8 +47,8 @@ public class Game {
             player = (Player) it.next();
             Board board = new Board();
             Fleet fleet = new Fleet(board,player);
-            player.getBoard(board);
-            player.getFleet(fleet);
+            player.setBoard(board);
+            player.setFleet(fleet);
             boards.add(board);
             fleets.add(fleet);
         }

@@ -19,6 +19,20 @@ public class Fleet extends Board{
         this.player = player;
         createFleet();
     }
+    public Fleet(Fleet fleet) {
+
+        ships =  fleet.ships;
+        numbers = fleet.numbers;
+        totalBoats = fleet.totalBoats;
+        counter = fleet.counter;
+        board  = fleet.board;
+        player = fleet.player;
+        startCol = fleet.startCol;
+        startRow = fleet.startRow;
+        endCol = fleet.endCol;
+        endRow = fleet.endRow;
+    }
+
     private void createFleet(){
         for ( int i = 0 ; i< numbers.length;i++ ){
             int number = numbers[i];

@@ -5,13 +5,18 @@ public class ComputerPlayer implements Player{
     Fleet fleet;
     Board board;
 
-    public void getFleet(Fleet fleet){
-        this.fleet = fleet;
-    }
+    public void setFleet(Fleet fleet){
+        this.fleet = fleet; }
+    public void setBoard(Board board){
+        this.board = board; }
 
-    public void getBoard(Board board){
-        this.board = board;
-    }
+    public Fleet getFleet(){
+        Fleet fleetCopy = new Fleet(fleet);
+        return fleetCopy;}
+
+    public Board getBoard(){
+        Board boardCopy = new Board(board);
+        return boardCopy;}
 
     //just returns random numbers
     public int[] getShotCommand(){
