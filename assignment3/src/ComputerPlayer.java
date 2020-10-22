@@ -22,6 +22,7 @@ public class ComputerPlayer implements Player{
     };
 
     public int[] getAttacked(int[] attack){
-
+        int[] a = {0};
+        return a;
     }
 }
