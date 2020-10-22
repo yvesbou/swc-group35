@@ -1,6 +1,6 @@
 package src;
 
-public class Submarine implements Boat{
+public class Submarine {
     private Cell [] cells;
     private Board board;
     private int instanceNumber;
@@ -23,7 +23,7 @@ public class Submarine implements Boat{
         boolean empty;
         while (!userInput) {
             int[] userCommand;
-            userCommand = HumanPlayer.getUserCommand("Submarine", instanceNumber);
+            userCommand = HumanPlayer.getPlacement("Submarine", instanceNumber);
             readUserCommand(userCommand);
             validity = checkValidity();
             if (!validity) {
@@ -67,10 +67,10 @@ public class Submarine implements Boat{
 
     }
     public void readUserCommand(int[] userCommand)  {
-        startRow = userCommand[0];
-        endRow = userCommand[1];
-        startCol = userCommand[2];
-        endCol = userCommand[3];
+        startCol = userCommand[0];
+        startRow = userCommand[1];
+        endCol = userCommand[2];
+        endRow = userCommand[3];
     }
 
     public boolean checkValidity(){

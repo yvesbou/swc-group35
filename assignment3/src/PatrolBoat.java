@@ -1,6 +1,6 @@
 package src;
 
-public class PatrolBoat implements Boat{
+public class PatrolBoat {
     private Cell [] cells;
     private int instanceNumber;
     private int len = 2;
@@ -67,10 +67,10 @@ public class PatrolBoat implements Boat{
 
     }
     public void readUserCommand(int[] userCommand)  {
-        startRow = userCommand[0];
-        endRow = userCommand[1];
-        startCol = userCommand[2];
-        endCol = userCommand[3];
+        startCol = userCommand[0];
+        startRow = userCommand[1];
+        endCol = userCommand[2];
+        endRow = userCommand[3];
     }
 
     public boolean checkValidity(){
