@@ -1,15 +1,20 @@
 package src;
 
 public class Board {
+    private String playerType;
     private int numCols=10;
     private int numRows=10;
     private Cell [][] board= new Cell[numCols][numRows];
     private char [] columns = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
     private int [] rows = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-    public Board(){
+    public Board (){
         initializeCells();
     }
+    public Board(Player player){
+        playerType=player.getPlayerType();
+        initializeCells();
+    }
+
     private void initializeCells(){
         for(int col =0; col<numCols;col++ ){
             for(int row =0;row <numRows;row++){
@@ -17,7 +22,18 @@ public class Board {
             }
         }
     }
+    public Board(Board oldBoard) {
+
+        numCols = oldBoard.numCols;
+        numRows = oldBoard.numRows;
+        board = oldBoard.board;
+        columns = oldBoard.columns;
+        rows = oldBoard.rows;
+    }
     // GETTERS//
+    public String getPlayerType(){
+        return playerType;
+    }
     public char[] getColNames(){
         return columns.clone();
     }

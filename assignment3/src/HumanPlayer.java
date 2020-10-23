@@ -5,17 +5,25 @@ import java.util.regex.*;
 public class HumanPlayer implements Player{
     private Board board;
     private Fleet fleet;
+    private String playerType= "HumanPlayer";
     private char[] columns = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+    // SETTERS //
     public void setBoard(Board board){
         this.board = board;
     }
     public void setFleet(Fleet fleet){
         this.fleet = fleet;
     }
+    // GETTERS //
+    public String getPlayerType(){
+        return playerType;
+    }
     public Board getBoard(){
-        return board;
+        Board boardCopy = new Board(board);
+        return boardCopy;
     }
     public Fleet getFleet(){
+        Fleet fleetCopy = new Fleet(fleet);
         return fleet;
     }
     public int[] getPlacement(String boatType, int instanceNumber) {
@@ -74,7 +82,7 @@ public class HumanPlayer implements Player{
         int col = attack[0];
         int row = attack[1];
         Cell cell = board.getCell(col,row) ;
-        boolean attackable  = cell.getHit();
+        boolean attackable  = !cell.getHit();
         return attackable;
     }
     public void getAttacked(int[] attack){
@@ -82,15 +90,17 @@ public class HumanPlayer implements Player{
         int row = attack[1];
         Cell cell = board.getCell(col,row);
         if(cell.isEmpty()){
-            System.out.println("Miss");
+            System.out.println("The computer missed");
         }
         else{
             Boat boat = cell.getBoat();
             if (boat.isDestroyed()){
-                System.out.println("You destroyed %s".format(boat.getBoatType()));
+                System.out.println("Your %s was destroyed".format(boat.getBoatType()));
             }
+
             else {
-                System.out.println("You hit a boat!");
+
+                System.out.println("Your boat was hit!");
             }
         };
         cell.setHit();

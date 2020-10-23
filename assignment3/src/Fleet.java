@@ -1,8 +1,9 @@
 package src;
 
 public class Fleet extends Board{
+    String playerType;
     private String[] ships={"Carrier","Battleship","Submarine","PatrolBoat"};
-    private int[] numbers={1,2,3,4};
+    private int[] numbers={1,0,0,0};
     private int totalBoats = 10;
     private int counter = 0;
     private Board board;
@@ -17,6 +18,7 @@ public class Fleet extends Board{
     public Fleet(Board board,Player player){
         this.board =board;
         this.player = player;
+        this.playerType = player.getPlayerType();
         createFleet();
     }
     public Fleet(Fleet fleet) {
@@ -54,7 +56,6 @@ public class Fleet extends Board{
                 }
                 placeBoat(fleet[counter]);
                 counter++;
-
             }
         }
     }
@@ -75,17 +76,19 @@ public class Fleet extends Board{
         while (!userInput) {
             int[] userCommand;
             userCommand = player.getPlacement(ship.getBoatType(), ship.getInstanceNumber());
+            System.out.println("getting user Input");
             readUserCommand(userCommand);
             validity = checkValidity(ship);
-            Cell[] cells = getCells();
             if (!validity) {
                 continue;
             }
+            Cell[] cells = getCells();
             empty = checkEmpty(cells);
             if (!empty) {
                 continue;
             }
             else {
+                System.out.println("BoatPlaced");
                 ship.markCells(cells);
                 userInput = true;
                 }
@@ -102,26 +105,36 @@ public class Fleet extends Board{
                 System.out.println("The Cell " + cell.getCoordinates() +
                         " is occupied with boatType: " + cell.getBoatType());
             }
-
         }
         return empty;
     }
 
-
     public void readUserCommand(int[] userCommand)  {
         startCol = userCommand[0];
-        startRow = userCommand[1];
         endCol = userCommand[2];
+        startRow = userCommand[1];
         endRow = userCommand[3];
+        //switch user input, if it was given in reverse order
+
+        if (endCol-startCol<0){
+            startCol = userCommand[2];
+            endCol = userCommand[0];
+        }
+        if (endRow-startRow<0){
+            startRow = userCommand[3];
+            endRow = userCommand[1];
+        }
+
     }
 
     public boolean checkValidity(Boat ship){
-
         boolean validity = true;
+        int len = ship.getLen();
 
-        if (endRow-startRow+endCol-startCol +1 != ship.getLen()){
+        if (endRow-startRow+endCol-startCol +1 != len){
             validity = false;
-            System.out.println("Wrong Boat length");
+            System.out.println(String.format("Wrong Boat length %d: length should be %d",
+                    endRow-startRow+endCol-startCol + 1,len));
         }
         else if ((startRow > 9) || (startRow < 0) || (startCol > 9) || (startCol < 0) || (endRow < 0) || (endRow > 9) || (endCol < 0) || (endCol > 9)){
             validity = false;
@@ -131,6 +144,7 @@ public class Fleet extends Board{
             System.out.println("Ship must not be placed diagonally");
             validity = false;
         }
+        //System.out.println("before returning validity");
         return validity;
     }
 }

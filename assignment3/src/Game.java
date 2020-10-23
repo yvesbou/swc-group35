@@ -10,9 +10,9 @@ public class Game {
     private Vector<Player> players = new Vector<Player>(2);
     private Vector<Board> boards = new Vector<Board>(2);
     private Vector<Fleet> fleets = new Vector<Fleet>(2);
-
     private Vector<Display> displays = new Vector<Display>(3);
-    private Player player;
+
+
     private Board board;
     private Player humanPlayer;
     private Player computerPlayer;
@@ -34,18 +34,25 @@ public class Game {
     // observer design pattern
     public void registerDisplay(Display newDisplay){displays.add(newDisplay);}
     public void removeDisplay(Display newDisplay){displays.remove(newDisplay);}
-    public void notifyDisplay(){
-
+    public void notifyDisplays(){
+        Iterator it = displays.iterator();
+        while(it.hasNext()){
+            Display display =  (Display) it.next();
+            display.update(boards,fleets);
+        }
     }
 
     // possibly rename since not in observer design pattern
 
-
+    public void setupDisplays(){
+        displays.add(new HumanBoardDisplay());
+        displays.add(new ComputerBoardDisplay());
+    }
     public void setupBoards(){
         Iterator it = players.iterator();
         while(it.hasNext()) {
-            player = (Player) it.next();
-            Board board = new Board();
+            Player player = (Player) it.next();
+            Board board = new Board(player);
             Fleet fleet = new Fleet(board,player);
             player.setBoard(board);
             player.setFleet(fleet);
@@ -56,22 +63,30 @@ public class Game {
     public void play(){
         int[] attack;
         setupBoards();
-
-        while(true){
-
+        setupDisplays();
+        while(true) {
             // first players attack
+            while (true) {
+                attack = humanPlayer.getShotCommand();
+                if (computerPlayer.isAttackable(attack)) {
+                    computerPlayer.getAttacked(attack);
+                    notifyDisplays();
 
-            attack = humanPlayer.getShotCommand();
-            computerPlayer.getAttacked(attack);
+                    break;
+                }
+            }
 
             // second players attack
-
-            attack = computerPlayer.getShotCommand();
-            humanPlayer.getAttacked(attack);
-
-
+            while (true) {
+                attack = computerPlayer.getShotCommand();
+                if (humanPlayer.isAttackable(attack)) {
+                    humanPlayer.getAttacked(attack);
+                    notifyDisplays();
+                    break;
+                }
+            }
+        }
 
         // pass attack from one player to the other player check if hit and then pass success back
     }
-
-}}
+}
