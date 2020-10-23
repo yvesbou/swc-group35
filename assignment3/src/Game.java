@@ -12,7 +12,6 @@ public class Game {
     private Vector<Fleet> fleets = new Vector<Fleet>(2);
     private Vector<Display> displays = new Vector<Display>(3);
 
-
     private Board board;
     private Player humanPlayer;
     private Player computerPlayer;
@@ -25,7 +24,7 @@ public class Game {
         players.add(computerPlayer);
     };
 
-    // singleton design //
+    // singleton design getInstance method //
     public static synchronized Game startGame() { if (uniqueGame == null) {
         uniqueGame = new Game(); }
         return uniqueGame;
@@ -42,12 +41,14 @@ public class Game {
         }
     }
 
-    // possibly rename since not in observer design pattern
-
+    // following observer design
     public void setupDisplays(){
-        displays.add(new HumanBoardDisplay());
-        displays.add(new ComputerBoardDisplay());
+        registerDisplay(new HumanBoardDisplay());
+        registerDisplay((new ComputerBoardDisplay()));
+        registerDisplay(new ScoreboardDisplay());
     }
+
+    // initialize boards, fleets for each player
     public void setupBoards(){
         Iterator it = players.iterator();
         while(it.hasNext()) {
@@ -60,6 +61,38 @@ public class Game {
             fleets.add(fleet);
         }
     }
+
+    public boolean checkWinner(){
+        boolean winnerExist = false;
+        Iterator it = fleets.iterator();
+        Fleet fleet;
+        int counterHuman = 0;
+        int counterComputer = 0;
+        while(it.hasNext()){
+            int i;
+
+            fleet = (Fleet) it.next(); //fleet is an array of a playerType with size 10
+            for (i = 0; i < fleet.fleet.length; i++){
+                if (fleet.playerType.equals("HumanPlayer")){
+                    fleet.fleet[i].isDestroyed();
+                    counterHuman ++;
+                }
+                else{
+                    fleet.fleet[i].isDestroyed();
+                    counterComputer ++;
+                }}}
+        if (counterHuman == 10 && counterComputer == 10){
+            System.out.println("Draw");
+        }
+        else if(counterHuman == 10){
+            System.out.println("Congratulations, you won!");
+        }
+        else{
+            System.out.println("Sorry, you lost!");
+        }
+        return winnerExist;
+    }
+
     public void play(){
         int[] attack;
         setupBoards();
@@ -84,6 +117,10 @@ public class Game {
                     notifyDisplays(); //only notify the display elements after a full round
                     break;
                 }
+            }
+            boolean winnerExists = checkWinner();
+            if (winnerExists){
+                break;
             }
         }
 
