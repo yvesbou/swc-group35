@@ -26,7 +26,7 @@ public class HumanPlayer implements Player{
         Fleet fleetCopy = new Fleet(fleet);
         return fleet;
     }
-    public int[] getPlacement(String boatType, int instanceNumber) {
+    public int[] getPlacement(int boatLen,String boatType, int instanceNumber) {
 
         int[] userCommand = new int[4];
         String line;

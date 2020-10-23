@@ -75,7 +75,7 @@ public class Fleet extends Board{
         boolean empty;
         while (!userInput) {
             int[] userCommand;
-            userCommand = player.getPlacement(ship.getBoatType(), ship.getInstanceNumber());
+            userCommand = player.getPlacement(ship.getLen(), ship.getBoatType(), ship.getInstanceNumber());
             System.out.println("getting user Input");
             readUserCommand(userCommand);
             validity = checkValidity(ship);
@@ -111,8 +111,8 @@ public class Fleet extends Board{
 
     public void readUserCommand(int[] userCommand)  {
         startCol = userCommand[0];
-        endCol = userCommand[2];
         startRow = userCommand[1];
+        endCol = userCommand[2];
         endRow = userCommand[3];
         //switch user input, if it was given in reverse order
 

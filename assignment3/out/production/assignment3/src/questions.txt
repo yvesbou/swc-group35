@@ -1,0 +1,6 @@
+questions to matej:
+
+we had a default constructor for board, and a parameterized, so I decided to delete the default, since both implement initialize cells,
+but the parameterized does initialize playerType as well
+There is no default constructor available in 'src.Board' was then a error in Fleet constructor, why? and what is in this case best practice
+

@@ -1,7 +1,7 @@
 package src;
 
 public interface Player {
-    int[] getPlacement(String boatType,int instanceNumber);
+    int[] getPlacement(int boatLen, String boatType,int instanceNumber);
     int[] getShotCommand();
     String getPlayerType();
     boolean isAttackable(int[]shot);

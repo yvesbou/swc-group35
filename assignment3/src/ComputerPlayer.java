@@ -1,5 +1,8 @@
 package src;
 import java.util.Random;
+
+import java.util.concurrent.ThreadLocalRandom;
+
 public class ComputerPlayer implements Player{
     private String playerType = "ComputerPlayer";
     private Fleet fleet;
@@ -30,24 +33,37 @@ public class ComputerPlayer implements Player{
         return shot;
     }
 
-    public int[] getPlacement(String boatType,int instanceNumber){
-        int[] placement = new int[4];
+    public int[] getPlacement(int boatLen,String boatType,int instanceNumber){
         Random rand = new Random();
         int direction = rand.nextInt(2);
-        int start
-        //vertical
+        int colStart, colEnd, rowStart,rowEnd;
+        int startCol,startRow,endCol,endRow;
+        colEnd = 9;
+        rowEnd = 9;
+        //vertical placement
         if (direction ==0){
-
+            rowStart = boatLen-1;
+            colStart = 0;
         }
-        //horizontal
+        //horizontal placement
         else{
+            colStart = boatLen-1;
+            rowStart = 0;
+        }
+        startRow = ThreadLocalRandom.current().nextInt(rowStart,rowEnd+1);
+        startCol = ThreadLocalRandom.current().nextInt(colStart,colEnd+1);
+        if (direction ==0){
+            endCol = startCol;
+            endRow = startRow-boatLen+1;
 
         }
-
+        //horizontal placement
+        else{
+            endRow = startRow;
+            endCol = startCol-boatLen+1;
+        }
         // Generate random integers in range 0 to 999
-        for (int i=0;i<=3;i++) {
-            placement[i] = rand.nextInt(10);
-        }
+        int[] placement = {startCol,startRow,endCol,endRow};
         return placement;
     };
     public String getPlayerType(){
