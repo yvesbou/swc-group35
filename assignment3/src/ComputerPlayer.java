@@ -33,6 +33,17 @@ public class ComputerPlayer implements Player{
     public int[] getPlacement(String boatType,int instanceNumber){
         int[] placement = new int[4];
         Random rand = new Random();
+        int direction = rand.nextInt(2);
+        int start
+        //vertical
+        if (direction ==0){
+
+        }
+        //horizontal
+        else{
+
+        }
+
         // Generate random integers in range 0 to 999
         for (int i=0;i<=3;i++) {
             placement[i] = rand.nextInt(10);
@@ -43,6 +54,7 @@ public class ComputerPlayer implements Player{
         return playerType;
     }
     public boolean isAttackable(int[] attack){
+        System.out.println("This position was already hit!");
         int col = attack[0];
         int row = attack[1];
         Cell cell = board.getCell(col,row) ;

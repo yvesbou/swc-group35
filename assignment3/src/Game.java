@@ -64,13 +64,13 @@ public class Game {
         int[] attack;
         setupBoards();
         setupDisplays();
+        notifyDisplays(); //only notify the display elements after a full round
         while(true) {
             // first players attack
             while (true) {
                 attack = humanPlayer.getShotCommand();
                 if (computerPlayer.isAttackable(attack)) {
                     computerPlayer.getAttacked(attack);
-                    notifyDisplays();
 
                     break;
                 }
@@ -81,7 +81,7 @@ public class Game {
                 attack = computerPlayer.getShotCommand();
                 if (humanPlayer.isAttackable(attack)) {
                     humanPlayer.getAttacked(attack);
-                    notifyDisplays();
+                    notifyDisplays(); //only notify the display elements after a full round
                     break;
                 }
             }
