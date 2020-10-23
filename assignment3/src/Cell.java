@@ -15,6 +15,16 @@ public class Cell {
         this.setColumn(column);
     }
 
+    public Cell(Cell oldCell){
+        boatType = oldCell.boatType;
+        boat = oldCell.boat;
+        row = oldCell.row;
+        column = oldCell.column;
+        empty = oldCell.empty;
+        board = oldCell.board;
+        gotHit = oldCell.gotHit;
+    }
+
     // SETTERS //
     public void setRow(int row){
         this.row = row;
