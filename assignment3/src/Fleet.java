@@ -86,7 +86,6 @@ public class Fleet {
         while (!userInput) {
             int[] userCommand;
             userCommand = player.getPlacement(ship.getLen(), ship.getBoatType(), ship.getInstanceNumber());
-            System.out.println("getting user Input");
             readUserCommand(userCommand);
             validity = checkValidity(ship);
             if (!validity) {
@@ -98,7 +97,6 @@ public class Fleet {
                 continue;
             }
             else {
-                System.out.println("BoatPlaced");
                 ship.markCells(cells);
                 userInput = true;
                 }

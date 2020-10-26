@@ -7,7 +7,7 @@ public class Cell {
     private int column;
     private boolean empty = true;
     private Board board;
-    private boolean gotHit;
+    private boolean gotHit = false;
 
     public Cell(int row, int column,Board board) {
         this.board= board;

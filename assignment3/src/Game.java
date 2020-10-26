@@ -36,7 +36,7 @@ public class Game {
     public void notifyDisplays(){
         Iterator it = displays.iterator();
         while(it.hasNext()){
-            Display display =  (Display) it.next();
+            Display display = (Display) it.next();
             display.update(boards,fleets);
         }
     }
@@ -74,23 +74,31 @@ public class Game {
             fleet = (Fleet) it.next(); //fleet is an array of a playerType with size 10
             for (i = 0; i < fleet.getFleetArray().length; i++){
                 if (fleet.playerType.equals("HumanPlayer")){
+
                     if(fleet.getFleetArray()[i].isDestroyed()) {
                         counterHuman++;
                     }
                 }
                 else{
+
                     if(fleet.getFleetArray()[i].isDestroyed()) {
                         counterComputer++;
                     }
-                }}}
-        if (counterHuman == 10 && counterComputer == 10){
+                }}
+
+        }
+
+        if (counterHuman == 1 && counterComputer == 1){
             System.out.println("Draw");
+            winnerExist = true;
         }
-        else if(counterHuman == 10){
+        else if(counterComputer == 1){
             System.out.println("Congratulations, you won!");
+            winnerExist = true;
         }
-        else{
+        else if(counterHuman == 1){
             System.out.println("Sorry, you lost!");
+            winnerExist = true;
         }
         return winnerExist;
     }
@@ -109,6 +117,7 @@ public class Game {
 
                     break;
                 }
+                else{System.out.println("This position was already hit!");}
             }
 
             // second players attack
@@ -119,6 +128,7 @@ public class Game {
                     notifyDisplays(); //only notify the display elements after a full round
                     break;
                 }
+                else{System.out.println("This position was already hit!");}
             }
             boolean winnerExists = checkWinner();
             if (winnerExists){

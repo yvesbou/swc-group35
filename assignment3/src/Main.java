@@ -1,6 +1,9 @@
 package src;
 import java.util.*;
 
+
+//todo: out of bounds with attack command
+
 public class Main {
     /* input has to be given in Form:
            A0 A5

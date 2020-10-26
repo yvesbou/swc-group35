@@ -70,7 +70,6 @@ public class ComputerPlayer implements Player{
         return playerType;
     }
     public boolean isAttackable(int[] attack){
-        System.out.println("This position was already hit!");
         int col = attack[0];
         int row = attack[1];
         Cell cell = board.getCell(col,row) ;
@@ -82,18 +81,22 @@ public class ComputerPlayer implements Player{
         int row = attack[1];
         Cell cell = board.getCell(col, row);
         if (cell.isEmpty()){
+            cell.setHit();
             System.out.println("Miss");
         }
+
         else{
             Boat boat = cell.getBoat();
+            cell.setHit();
             if (boat.isDestroyed()) {
-                System.out.println("You destroyed %s".format(boat.getBoatType()));
+                System.out.println("you destroyed the enemies boat");
+                System.out.print(String.format("You destroyed a %s".format(boat.getBoatType())));
             }
             else {
                 System.out.println("You hit a boat!");
             }
 
         }
-        cell.setHit();
+
     }
 }

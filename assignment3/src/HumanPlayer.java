@@ -1,4 +1,5 @@
 package src;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.*;
@@ -74,11 +75,14 @@ public class HumanPlayer implements Player{
         //checking for incorrect input
         while (true) {
             // checks code for exceptions
-            System.out.println("Enter the position you want to attack:");
+            System.out.print("Enter the position you want to attack:");
             line = Input.nextLine();
             p = Pattern.compile("^[A-Z][0-9]$");
-            m = p.matcher(line);
-            boolean b = m.matches();
+            positions = line.split(" ");
+            String a = positions[0];
+            //todo: check out of bounds placements
+            Arrays.asList(columns).contains(a.charAt(0));
+            boolean b = p.matcher(line).matches();
             try {
 
                 if (!b) {
@@ -102,20 +106,25 @@ public class HumanPlayer implements Player{
         int col = attack[0];
         int row = attack[1];
         Cell cell = board.getCell(col,row) ;
-        boolean attackable  = !cell.getHit();
+        boolean attackable = !cell.getHit();
         return attackable;
-    }
+        }
+
     public void getAttacked(int[] attack){
         int col = attack[0];
         int row = attack[1];
         Cell cell = board.getCell(col,row);
+        Boat boat = cell.getBoat();
+        char col_chr  = columns[col];
+        System.out.println(String.format("The computer attacks position %c%d",col_chr ,row ));
         if(cell.isEmpty()){
-            System.out.println("The computer missed");
+            cell.setHit();
+            System.out.println("The computer missed.");
         }
         else{
-            Boat boat = cell.getBoat();
+            cell.setHit();
             if (boat.isDestroyed()){
-                System.out.println("Your %s was destroyed".format(boat.getBoatType()));
+                System.out.print(String.format("Your %s was destroyed.",boat.getBoatType()));
             }
 
             else {
@@ -123,7 +132,7 @@ public class HumanPlayer implements Player{
                 System.out.println("Your boat was hit!");
             }
         };
-        cell.setHit();
+        //cell.setHit();
     }
 
 
