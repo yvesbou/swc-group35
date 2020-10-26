@@ -12,29 +12,34 @@ public class ScoreboardDisplay implements Display {
 
     public void ScoreBoard(){
         Iterator it = fleets.iterator();
-        int counterHuman = 0;
-        int counterComputer = 0;
+        int aliveHuman = 0;
+        int destroyedComputer = 0;
         while(it.hasNext()){
             int i;
 
             fleet = (Fleet) it.next(); //fleet is an array of a playerType with size 10
-            for (i = 0; i < fleet.fleet.length; i++){
-                if (fleet.playerType.equals("HumanPlayer")){
-                fleet.fleet[i].isDestroyed();
-                counterHuman ++;
+            for (i = 0; i < fleet.getFleetArray().length; i++) {
+                if (fleet.playerType.equals("HumanPlayer")) {
+                    if (!fleet.getFleetArray()[i].isDestroyed()) {
+                        aliveHuman++;
+                    }
                 }
-                else{
-                fleet.fleet[i].isDestroyed();
-                counterComputer ++;
-            }}
+                else {
+                    if (fleet.getFleetArray()[i].isDestroyed()) {
+                        destroyedComputer++;
+                    }
+
+
+                }
+            }
         }
         System.out.println();
         System.out.println("Your scoreboard:");
-        System.out.println("   - Player remaining boats: %s".format(Integer.toString(10-counterHuman)));
-        System.out.println("   - Enemy boats destroyed: %s".format(Integer.toString(counterComputer)));
+        System.out.println(String.format("   - Player remaining boats: %d",aliveHuman));
+        System.out.println(String.format("   - Enemy boats destroyed: %d",destroyedComputer));
     }
 
-    public void update(Vector<Board> boards, Vector<Fleet> fleets){
+    public void update(Vector<Board>boards,Vector<Fleet> fleets){
         this.boards = boards;
         this.fleets = fleets;
         ScoreBoard();

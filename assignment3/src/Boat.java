@@ -6,12 +6,8 @@ public interface Boat {
     void markCells(Cell[] cells);
     String getBoatType();
     boolean isDestroyed();
-    /*
-    void readUserCommand(int[] userCommand);
-    boolean checkEmpty();
-    void markCells();
-    boolean checkValidity();
-    */
+
+
 
 
 }

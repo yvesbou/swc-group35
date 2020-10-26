@@ -1,10 +1,10 @@
 package src;
 
-public class Fleet extends Board{
+public class Fleet {
     String playerType;
     private String[] ships={"Carrier","Battleship","Submarine","PatrolBoat"};
     private int[] numbers={1,0,0,0};
-    private int totalBoats = 10;
+    private int totalBoats = 1;
     private int counter = 0;
     private Board board;
     private Player player;
@@ -12,17 +12,16 @@ public class Fleet extends Board{
     private int startRow ;
     private int endCol ;
     private int endRow ;
-
-    Boat[] fleet= new Boat[totalBoats];
+    private Boat[] fleetArray;
 
     public Fleet(Board board,Player player){
-        this.board =board;
+        this.board = board;
         this.player = player;
         this.playerType = player.getPlayerType();
         createFleet();
     }
-    public Fleet(Fleet fleet) {
 
+    public Fleet(Fleet fleet) {
         ships =  fleet.ships;
         numbers = fleet.numbers;
         totalBoats = fleet.totalBoats;
@@ -33,31 +32,42 @@ public class Fleet extends Board{
         startRow = fleet.startRow;
         endCol = fleet.endCol;
         endRow = fleet.endRow;
+        fleetArray = fleet.fleetArray;
     }
-
+    public Boat[] getFleetArray(){
+        return fleetArray.clone();
+    }
     private void createFleet(){
+        totalBoats = 0;
+        for (int i:numbers){
+            totalBoats+=i;
+        }
+        fleetArray = new Boat[totalBoats];
         for ( int i = 0 ; i< numbers.length;i++ ){
             int number = numbers[i];
             String ship = ships[i];
             for (int j = 1; j <= number;j++){
                 switch(ship){
                     case "Battleship":
-                        fleet[counter] = new BattleShip(j);
+                        fleetArray[counter] = new BattleShip(j);
                         break;
                     case "Submarine":
-                        fleet[counter] = new Submarine(j);
+                        fleetArray[counter] = new Submarine(j);
                         break;
                     case "Carrier":
-                        fleet[counter]= new Carrier(j);
+                        fleetArray[counter]= new Carrier(j);
                         break;
                     case "PatrolBoat":
-                        fleet[counter] = new PatrolBoat(j);
+                        fleetArray[counter] = new PatrolBoat(j);
                         break;
                 }
-                placeBoat(fleet[counter]);
+                placeBoat(fleetArray[counter]);
                 counter++;
             }
         }
+    }
+    public int getTotalBoats(){
+        return totalBoats;
     }
     public Cell[] getCells(){
         Cell[] cells = new Cell[endRow -startRow +endCol-startCol];
@@ -124,7 +134,6 @@ public class Fleet extends Board{
             startRow = userCommand[3];
             endRow = userCommand[1];
         }
-
     }
 
     public boolean checkValidity(Boat ship){

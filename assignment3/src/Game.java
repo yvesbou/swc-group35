@@ -72,14 +72,16 @@ public class Game {
             int i;
 
             fleet = (Fleet) it.next(); //fleet is an array of a playerType with size 10
-            for (i = 0; i < fleet.fleet.length; i++){
+            for (i = 0; i < fleet.getFleetArray().length; i++){
                 if (fleet.playerType.equals("HumanPlayer")){
-                    fleet.fleet[i].isDestroyed();
-                    counterHuman ++;
+                    if(fleet.getFleetArray()[i].isDestroyed()) {
+                        counterHuman++;
+                    }
                 }
                 else{
-                    fleet.fleet[i].isDestroyed();
-                    counterComputer ++;
+                    if(fleet.getFleetArray()[i].isDestroyed()) {
+                        counterComputer++;
+                    }
                 }}}
         if (counterHuman == 10 && counterComputer == 10){
             System.out.println("Draw");
