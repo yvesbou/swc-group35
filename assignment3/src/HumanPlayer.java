@@ -78,11 +78,18 @@ public class HumanPlayer implements Player{
             System.out.print("Enter the position you want to attack:");
             line = Input.nextLine();
             p = Pattern.compile("^[A-Z][0-9]$");
-            positions = line.split(" ");
-            String a = positions[0];
-            //todo: check out of bounds placements
-            Arrays.asList(columns).contains(a.charAt(0));
             boolean b = p.matcher(line).matches();
+            try {
+
+                if (!b) {
+                    throw new InputMismatchException();
+                }
+            } catch (InputMismatchException e) { //if an exception appears prints message below
+                System.err.println("Try again, wrong input format. Format must be like A0");
+                continue;
+            }
+            p = Pattern.compile("^[A-J][0-9]$");
+            b = p.matcher(line).matches();
             try {
 
                 if (!b) {
@@ -90,9 +97,12 @@ public class HumanPlayer implements Player{
                 }
                 break;
             } catch (InputMismatchException e) { //if an exception appears prints message below
-                System.err.println("Try again, wrong input format. Format must be like A0");
+                System.err.println("Try again, out of bounds, maximal column is J");
                 continue;
             }
+
+
+
         }
         char a = line.charAt(0);
         String b = line.substring(1);

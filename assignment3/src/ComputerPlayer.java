@@ -89,8 +89,7 @@ public class ComputerPlayer implements Player{
             Boat boat = cell.getBoat();
             cell.setHit();
             if (boat.isDestroyed()) {
-                System.out.println("you destroyed the enemies boat");
-                System.out.print(String.format("You destroyed a %s".format(boat.getBoatType())));
+                System.out.println(String.format("You destroyed a %s",boat.getBoatType()));
             }
             else {
                 System.out.println("You hit a boat!");
