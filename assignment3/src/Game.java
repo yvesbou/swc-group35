@@ -105,6 +105,7 @@ public class Game {
 
     public void play(){
         int[] attack;
+        boolean winnerExists = false;
         setupBoards();
         setupDisplays();
         notifyDisplays(); //only notify the display elements after a full round
@@ -119,7 +120,10 @@ public class Game {
                 }
                 else{System.out.println("This position was already hit!");}
             }
-
+            winnerExists = checkWinner();
+            if (winnerExists){
+                break;
+            }
             // second players attack
             while (true) {
                 attack = computerPlayer.getShotCommand();
@@ -130,7 +134,7 @@ public class Game {
                 }
                 else{System.out.println("This position was already hit!");}
             }
-            boolean winnerExists = checkWinner();
+            winnerExists = checkWinner();
             if (winnerExists){
                 break;
             }
