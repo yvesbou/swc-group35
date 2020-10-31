@@ -63,13 +63,12 @@ public class HumanPlayer implements Player{
         b = str.substring(1);
         endCol = new String(columns).indexOf(a);
         endRow = Integer.parseInt(b);
-
-        Command startRowCMD = new Command(startRow,false,true);
         Command startColCMD = new Command(startCol,true,true);
+        Command startRowCMD = new Command(startRow,false,true);
+        Command endColCMD = new Command(endCol,true,false);
         Command endRowCMD = new Command(endRow,false,false);
-        Command endColCMD = new Command(startRow,true,false);
 
-        Command[] placement={startColCMD,startRowCMD,endColCMD,endRowCMD};
+        Command[] placement = {startColCMD,startRowCMD,endColCMD,endRowCMD};
 
         return placement;
     }
@@ -118,6 +117,7 @@ public class HumanPlayer implements Player{
 
         return shot;
     }
+    //belongs to iterator desing pattern
     public iterator createIterator(int boatLen,String boatType,int instanceNumber){
         Command[] placement;
         placement = getPlacement(boatLen,boatType, instanceNumber);

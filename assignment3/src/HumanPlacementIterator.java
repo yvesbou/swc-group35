@@ -1,5 +1,5 @@
 package src;
-
+//belongs to iterator design pattern
 public class HumanPlacementIterator implements iterator {
     Command[] placement;
     int position=0;
@@ -8,7 +8,7 @@ public class HumanPlacementIterator implements iterator {
     }
     public boolean hasNext(){
         boolean hasNextEl = false;
-        if (position+1 >= placement.length || placement[position+1] == null)
+        if (position >= placement.length || placement[position] == null)
             hasNextEl = false;
         else{
             hasNextEl = true;
@@ -16,8 +16,9 @@ public class HumanPlacementIterator implements iterator {
         return hasNextEl;
     }
     public Object next() {
+        Object next = placement[position];
         position++;
-        return placement[position];
+        return next;
     }
 }
 

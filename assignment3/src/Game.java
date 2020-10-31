@@ -73,7 +73,7 @@ public class Game {
 
             fleet = (Fleet) it.next(); //fleet is an array of a playerType with size 10
             for (i = 0; i < fleet.getFleetArray().length; i++){
-                if (fleet.playerType.equals("HumanPlayer")){
+                if (fleet.getPlayerType().equals("HumanPlayer")){
 
                     if(fleet.getFleetArray()[i].isDestroyed()) {
                         counterHuman++;
@@ -84,19 +84,23 @@ public class Game {
                     if(fleet.getFleetArray()[i].isDestroyed()) {
                         counterComputer++;
                     }
-                }}
+                }
+            }
 
         }
 
-        if (counterHuman == 1 && counterComputer == 1){
+        if (counterHuman == 10 && counterComputer == 10){
+            notifyDisplays();
             System.out.println("Draw");
             winnerExist = true;
         }
-        else if(counterComputer == 1){
+        else if(counterComputer == 10){
+            notifyDisplays();
             System.out.println("Congratulations, you won!");
             winnerExist = true;
         }
-        else if(counterHuman == 1){
+        else if(counterHuman == 10){
+            notifyDisplays();
             System.out.println("Sorry, you lost!");
             winnerExist = true;
         }
@@ -132,7 +136,9 @@ public class Game {
                     notifyDisplays(); //only notify the display elements after a full round
                     break;
                 }
-                else{System.out.println("This position was already hit!");}
+                else{
+                    //System.out.println("This position was already hit!");
+                }
             }
             winnerExists = checkWinner();
             if (winnerExists){

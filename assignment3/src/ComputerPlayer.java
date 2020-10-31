@@ -55,23 +55,26 @@ public class ComputerPlayer implements Player{
         startRow = ThreadLocalRandom.current().nextInt(rowStart,rowEnd+1);
         startCol = ThreadLocalRandom.current().nextInt(colStart,colEnd+1);
         if (direction ==0){
-            endCol = startCol;
-            endRow = startRow-boatLen+1;
+            endCol=startCol;
+            endRow=startRow-boatLen+1;
         }
         //horizontal placement
         else{
-            endRow = startRow;
-            endCol = startCol-boatLen+1;
+            endRow= startRow;
+            endCol= startCol-boatLen+1;
         }
-        Command startRowCMD = new Command(startRow,false,true);
+
         Command startColCMD = new Command(startCol,true,true);
+        Command startRowCMD = new Command(startRow,false,true);
+        Command endColCMD = new Command(endCol,true,false);
         Command endRowCMD = new Command(endRow,false,false);
-        Command endColCMD = new Command(startRow,true,false);
         placement.add(startColCMD);
         placement.add(startRowCMD);
         placement.add(endColCMD);
         placement.add(endRowCMD);
         /////int[] placement = {startCol,startRow,endCol,endRow};
+        //System.out.println(String.format("direction: %s startCol: %s startRow: %s endCol: %s endRow %s",direction,  startCol,startRow,endCol,endRow));
+
         return placement;
     };
     public String getPlayerType(){
@@ -84,6 +87,7 @@ public class ComputerPlayer implements Player{
         boolean attackable  = !cell.getHit();
         return attackable;
     }
+    //belongs to itertor design pattern
     public iterator createIterator(int boatLen, String boatType, int instanceNumber){
         ArrayList<Command> placement = getPlacement(boatLen, boatType,instanceNumber);
         return new ComputerPlacementIterator(placement);

@@ -12,6 +12,7 @@ public interface Player {
     void setFleet(Fleet fleet);
     void setBoard(Board board);
     void getAttacked(int[] attack);
+    //belongs to iterator design pattern
     iterator createIterator(int boatLen, String boatType, int instanceNumber);
 
 

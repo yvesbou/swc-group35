@@ -1,6 +1,6 @@
 package src;
 import java.util.ArrayList;
-
+//belongs to iterator design pattern
 public class ComputerPlacementIterator implements iterator {
     ArrayList<Command> placement;
     int position=0;
@@ -9,7 +9,7 @@ public class ComputerPlacementIterator implements iterator {
     }
     public boolean hasNext(){
         boolean hasNextEl = false;
-        if (position+1 >= placement.size()||placement.get(position+1)==null)
+        if (position >= placement.size()||placement.get(position)==null)
             hasNextEl = false;
         else{
             hasNextEl = true;
@@ -17,7 +17,8 @@ public class ComputerPlacementIterator implements iterator {
         return hasNextEl;
     }
     public Object next() {
+        Object next = placement.get(position);
         position++;
-        return placement.get(position);
+        return next;
     }
 }
