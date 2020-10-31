@@ -3,7 +3,7 @@ package src;
 public class Fleet {
     String playerType;
     private String[] ships={"Carrier","Battleship","Submarine","PatrolBoat"};
-    private int[] numbers={1,0,0,0};
+    private int[] numbers={1,2,3,4};
     private int totalBoats = 1;
     private int counter = 0;
     private Board board;
@@ -83,9 +83,9 @@ public class Fleet {
         boolean userInput = false;
         boolean validity;
         boolean empty;
+        iterator userCommand;
         while (!userInput) {
-            int[] userCommand;
-            userCommand = player.getPlacement(ship.getLen(), ship.getBoatType(), ship.getInstanceNumber());
+            userCommand = player.createIterator(ship.getLen(), ship.getBoatType(), ship.getInstanceNumber());
             readUserCommand(userCommand);
             validity = checkValidity(ship);
             if (!validity) {
@@ -117,20 +117,35 @@ public class Fleet {
         return empty;
     }
 
-    public void readUserCommand(int[] userCommand)  {
-        startCol = userCommand[0];
-        startRow = userCommand[1];
-        endCol = userCommand[2];
-        endRow = userCommand[3];
+    public void readUserCommand(iterator userCommand)  {
+        Command command;
+        int temp;
+        while(userCommand.hasNext()){
+            command = (Command)userCommand.next();
+            if (command.isCol()||command.isStart()){
+                startCol = command.getPos();
+            }
+            else if(!command.isCol()||command.isStart()){
+                startRow = command.getPos();
+            }
+            else if(command.isCol()||!command.isStart()){
+                endCol = command.getPos();
+            }
+            else {
+                endRow = command.getPos();
+            }
+        }
         //switch user input, if it was given in reverse order
 
         if (endCol-startCol<0){
-            startCol = userCommand[2];
-            endCol = userCommand[0];
+            temp = startCol;
+            startCol = endCol;
+            endCol =temp;
         }
         if (endRow-startRow<0){
-            startRow = userCommand[3];
-            endRow = userCommand[1];
+            temp = startRow;
+            startRow = endRow;
+            endRow = temp;
         }
     }
 

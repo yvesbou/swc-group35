@@ -1,4 +1,5 @@
 package src;
+import java.util.ArrayList;
 import java.util.Random;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -33,8 +34,9 @@ public class ComputerPlayer implements Player{
         return shot;
     }
 
-    public int[] getPlacement(int boatLen,String boatType,int instanceNumber){
+    public ArrayList<Command> getPlacement(int boatLen, String boatType, int instanceNumber){
         Random rand = new Random();
+        ArrayList<Command> placement= new ArrayList<Command>(4);
         int direction = rand.nextInt(2);
         int colStart, colEnd, rowStart,rowEnd;
         int startCol,startRow,endCol,endRow;
@@ -55,15 +57,21 @@ public class ComputerPlayer implements Player{
         if (direction ==0){
             endCol = startCol;
             endRow = startRow-boatLen+1;
-
         }
         //horizontal placement
         else{
             endRow = startRow;
             endCol = startCol-boatLen+1;
         }
-        // Generate random integers in range 0 to 999
-        int[] placement = {startCol,startRow,endCol,endRow};
+        Command startRowCMD = new Command(startRow,false,true);
+        Command startColCMD = new Command(startCol,true,true);
+        Command endRowCMD = new Command(endRow,false,false);
+        Command endColCMD = new Command(startRow,true,false);
+        placement.add(startColCMD);
+        placement.add(startRowCMD);
+        placement.add(endColCMD);
+        placement.add(endRowCMD);
+        /////int[] placement = {startCol,startRow,endCol,endRow};
         return placement;
     };
     public String getPlayerType(){
@@ -76,6 +84,10 @@ public class ComputerPlayer implements Player{
         boolean attackable  = !cell.getHit();
         return attackable;
     }
+    public iterator createIterator(int boatLen, String boatType, int instanceNumber){
+        ArrayList<Command> placement = getPlacement(boatLen, boatType,instanceNumber);
+        return new ComputerPlacementIterator(placement);
+    }
     public void getAttacked(int[] attack){
         int col = attack[0];
         int row = attack[1];
@@ -84,7 +96,6 @@ public class ComputerPlayer implements Player{
             cell.setHit();
             System.out.println("Miss");
         }
-
         else{
             Boat boat = cell.getBoat();
             cell.setHit();

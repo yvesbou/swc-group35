@@ -1,7 +1,9 @@
 package src;
 
+
+
 public interface Player {
-    int[] getPlacement(int boatLen, String boatType,int instanceNumber);
+    //int[] getPlacement(int boatLen, String boatType,int instanceNumber);
     int[] getShotCommand();
     String getPlayerType();
     boolean isAttackable(int[]shot);
@@ -10,6 +12,7 @@ public interface Player {
     void setFleet(Fleet fleet);
     void setBoard(Board board);
     void getAttacked(int[] attack);
+    iterator createIterator(int boatLen, String boatType, int instanceNumber);
 
 
 }

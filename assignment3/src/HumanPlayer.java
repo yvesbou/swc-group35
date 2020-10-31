@@ -27,9 +27,9 @@ public class HumanPlayer implements Player{
         Fleet fleetCopy = new Fleet(fleet);
         return fleet;
     }
-    public int[] getPlacement(int boatLen,String boatType, int instanceNumber) {
+    public Command[] getPlacement(int boatLen,String boatType, int instanceNumber) {
 
-        int[] userCommand = new int[4];
+        int startCol,startRow,endCol,endRow;
         String line;
         String[] positions;
         Scanner Input = new Scanner(System.in);
@@ -52,16 +52,26 @@ public class HumanPlayer implements Player{
                     // if no exceptions breaks out of loop
         }
 
-        for (int i = 0; i < positions.length; i++) {
+        String str = positions[0];
+        char a = str.charAt(0);
+        String b = str.substring(1);
+        startCol = new String(columns).indexOf(a);
+        startRow = Integer.parseInt(b);
 
-            String str = positions[i];
-            char a = str.charAt(0);
-            String b = str.substring(1);
-            userCommand[2*i] = new String(columns).indexOf(a);
-            userCommand[2*i + 1] = Integer.parseInt(b);
-            //Format: startColumn startRow endColumn endRow
-        }
-        return userCommand;
+        str = positions[1];
+        a = str.charAt(0);
+        b = str.substring(1);
+        endCol = new String(columns).indexOf(a);
+        endRow = Integer.parseInt(b);
+
+        Command startRowCMD = new Command(startRow,false,true);
+        Command startColCMD = new Command(startCol,true,true);
+        Command endRowCMD = new Command(endRow,false,false);
+        Command endColCMD = new Command(startRow,true,false);
+
+        Command[] placement={startColCMD,startRowCMD,endColCMD,endRowCMD};
+
+        return placement;
     }
 
     public int[] getShotCommand() {
@@ -100,9 +110,6 @@ public class HumanPlayer implements Player{
                 System.err.println("Try again, out of bounds, maximal column is J");
                 continue;
             }
-
-
-
         }
         char a = line.charAt(0);
         String b = line.substring(1);
@@ -110,6 +117,11 @@ public class HumanPlayer implements Player{
         shot[1] = Integer.parseInt(b);
 
         return shot;
+    }
+    public iterator createIterator(int boatLen,String boatType,int instanceNumber){
+        Command[] placement;
+        placement = getPlacement(boatLen,boatType, instanceNumber);
+        return new HumanPlacementIterator(placement);
     }
 
     public boolean isAttackable(int[] attack){

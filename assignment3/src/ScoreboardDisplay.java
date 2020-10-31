@@ -16,7 +16,6 @@ public class ScoreboardDisplay implements Display {
         int destroyedComputer = 0;
         while(it.hasNext()){
             int i;
-
             fleet = (Fleet) it.next(); //fleet is an array of a playerType with size 10
             for (i = 0; i < fleet.getFleetArray().length; i++) {
                 if (fleet.playerType.equals("HumanPlayer")) {
@@ -28,7 +27,6 @@ public class ScoreboardDisplay implements Display {
                     if (fleet.getFleetArray()[i].isDestroyed()) {
                         destroyedComputer++;
                     }
-
 
                 }
             }
