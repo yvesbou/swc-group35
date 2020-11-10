@@ -1,9 +1,24 @@
 package src;
-public class BackendTechnician extends Technician{
+public class BackendTechnician implements Technician{
+    private final int ID;
+    private final String name;
+    private final String surname;
     BackendTechnician(String name, String surname) {
-        super(name, surname);
+        this.name = name;
+        this.surname = surname;
+        this.ID = ChiefOfStaff.getChiefOfStaff().getNewID();
     }
     public void fixBackend(int technicianID){
         System.out.println("fixed!");
     }
+    public int getID(){
+        return ID;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getSurname(){
+        return surname;
+    }
+
 }

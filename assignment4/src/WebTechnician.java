@@ -1,7 +1,12 @@
 package src;
-public class WebTechnician extends Technician{
+public class WebTechnician implements Technician{
+    private final int ID;
+    private final String name;
+    private final String surname;
     WebTechnician(String name, String surname) {
-        super(name, surname);
+        this.name = name;
+        this.surname = surname;
+        this.ID = ChiefOfStaff.getChiefOfStaff().getNewID();
     }
     public void fixWebsite(){
         try {
@@ -11,4 +16,14 @@ public class WebTechnician extends Technician{
         }
         System.out.println("reparations complete");
     }
+    public int getID(){
+        return ID;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getSurname(){
+        return surname;
+    }
+
 }
