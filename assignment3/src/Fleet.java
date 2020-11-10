@@ -1,10 +1,10 @@
 package src;
 
 public class Fleet {
-    String playerType;
+    private String playerType;
     private String[] ships={"Carrier","Battleship","Submarine","PatrolBoat"};
-    private int[] numbers={1,0,0,0};
-    private int totalBoats = 1;
+    private int[] numbers={1,2,3,4};
+    private int totalBoats = 10;
     private int counter = 0;
     private Board board;
     private Player player;
@@ -33,6 +33,9 @@ public class Fleet {
         endCol = fleet.endCol;
         endRow = fleet.endRow;
         fleetArray = fleet.fleetArray;
+    }
+    public String getPlayerType(){
+        return playerType;
     }
     public Boat[] getFleetArray(){
         return fleetArray.clone();
@@ -83,9 +86,9 @@ public class Fleet {
         boolean userInput = false;
         boolean validity;
         boolean empty;
+        iterator userCommand;
         while (!userInput) {
-            int[] userCommand;
-            userCommand = player.getPlacement(ship.getLen(), ship.getBoatType(), ship.getInstanceNumber());
+            userCommand = player.createIterator(ship.getLen(), ship.getBoatType(), ship.getInstanceNumber());
             readUserCommand(userCommand);
             validity = checkValidity(ship);
             if (!validity) {
@@ -110,28 +113,52 @@ public class Fleet {
             Cell cell = cells[i];
             if (!cell.isEmpty()) {
                 empty = false;
-                System.out.println("The Cell " + cell.getCoordinates() +
-                        " is occupied with boatType: " + cell.getBoatType());
+                if(playerType =="HumanPlayer") {
+                    System.out.println("The Cell " + cell.getCoordinates() +
+                            " is occupied with boatType: " + cell.getBoatType());
+                }
             }
         }
         return empty;
     }
 
-    public void readUserCommand(int[] userCommand)  {
-        startCol = userCommand[0];
-        startRow = userCommand[1];
-        endCol = userCommand[2];
-        endRow = userCommand[3];
+    public void readUserCommand(iterator userCommand)  {
+        Command command;
+        int temp;
+        //belongs to Iterator design pattern
+        while(userCommand.hasNext()){
+
+            command = (Command)userCommand.next();
+            if ((!command.isCol())&&(!command.isStart())) {
+                endRow = command.getPos();
+            }
+            else if((!command.isCol())&&command.isStart()){
+                startRow = command.getPos();
+            }
+            else if(command.isCol()&&(!command.isStart())){
+                endCol = command.getPos();
+            }
+            else{
+                startCol = command.getPos();
+            }
+
+        }
+
+
         //switch user input, if it was given in reverse order
 
         if (endCol-startCol<0){
-            startCol = userCommand[2];
-            endCol = userCommand[0];
+            temp = startCol;
+            startCol = endCol;
+            endCol =temp;
         }
         if (endRow-startRow<0){
-            startRow = userCommand[3];
-            endRow = userCommand[1];
+            temp = startRow;
+            startRow = endRow;
+            endRow = temp;
         }
+        //System.out.println(String.format("FLEET startCol: %s startRow: %s endCol: %s endRow %s",  startCol,startRow,endCol,endRow));
+
     }
 
     public boolean checkValidity(Boat ship){
