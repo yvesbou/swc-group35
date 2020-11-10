@@ -14,9 +14,10 @@ public interface CreditCard {
     public String getSurname();
     public int getSerialNumber();
     public int getSecurityNumber();
-    public Date getExpirationDate();
     public Boolean isExpired();
     public String getLevel();
     public int getLimit();
+
+    public Date getExpirationDate();
 
 }
