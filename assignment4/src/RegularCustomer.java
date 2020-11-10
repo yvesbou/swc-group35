@@ -1,3 +1,4 @@
+package src;
 import java.util.Date;
 public class RegularCustomer implements Customer {
     private String Name;

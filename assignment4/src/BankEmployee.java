@@ -1,5 +1,4 @@
-
-
+package src;
 public class BankEmployee {
     private final String name;
     private final String surname;

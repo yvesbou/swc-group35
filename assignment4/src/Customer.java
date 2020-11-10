@@ -1,3 +1,4 @@
+package src;
 public interface Customer {
     public void deposit(int amount);
     public int withdraw(int amount);

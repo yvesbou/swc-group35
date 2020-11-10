@@ -1,4 +1,4 @@
-
+package src;
 public class ChiefOfStaff {
     private static ChiefOfStaff uniqueChiefOfStaff = null;
     private int employeeID = 0;
