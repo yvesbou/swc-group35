@@ -1,4 +1,3 @@
-package src;
 
 public class SectionChief extends RegularEmployee{
     private String city;

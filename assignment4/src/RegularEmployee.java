@@ -1,4 +1,3 @@
-package src;
 
 public class RegularEmployee extends BankEmployee {
     public RegularEmployee(String name, String surname){

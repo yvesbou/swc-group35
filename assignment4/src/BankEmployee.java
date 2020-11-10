@@ -1,4 +1,4 @@
-package src;
+
 
 public class BankEmployee {
     private final String name;
@@ -16,3 +16,4 @@ public class BankEmployee {
     }
 
 }
+

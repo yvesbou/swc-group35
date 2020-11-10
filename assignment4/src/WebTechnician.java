@@ -1,4 +1,3 @@
-package src;
 
 public class WebTechnician extends Technician{
     WebTechnician(String name, String surname) {

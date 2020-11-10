@@ -1,4 +1,3 @@
-package src;
 
 public class Technician {
     private final int ID;
