@@ -16,28 +16,29 @@ public abstract class BankEmployee {
     public void addCustomer(Customer customer){
         customers.add(customer);
     }
-    public void upgradeRegularToGold(int CustomerID, int y){
+    public String upgradeRegularToGold(int CustomerID, int y){
         Customer customer;
+        String s;
         Iterator it = customers.iterator();
         while(it.hasNext()){
             customer = (Customer)it.next();
             if(customer.getCustomerID()==ID){
                 if (customer.getCard() instanceof CreditCardRegular){
                     //Customer customer,
-                    int secNr = CreditCardValidation.getNewSecurityNumber();
-                    int serial = CreditCardValidation.getNewSerialNumber();
-                    String n = customer.getName();
-                    String s = customer.getSurname();
                     StatusCustomer newCustomer = new GoldenCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{
-                    System.out.println("You don't have the permission to do this action");
+                    s = "You don't have the permission to do this action";
+                    System.out.println(s);
+                    return s;
                 }
                 break;
             }
         }
-        System.out.println("No costumer with this ID found");
+        s = "No costumer with this ID found";
+        System.out.println(s);
+        return s;
 
     }
     //GETTERS
@@ -47,6 +48,7 @@ public abstract class BankEmployee {
     public List<Customer> getCustomers(){
         return this.customers;
     }
+
 
 }
 
