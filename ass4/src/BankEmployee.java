@@ -7,7 +7,15 @@ public class BankEmployee {
     private final String surname;
     private final int ID;
     private final List<Customer> customers = new ArrayList<Customer>();
-    public BankEmployee(String name, String surname){
+    private String city;
+    public BankEmployee(String name, String surname,String city) throws Exception {
+        if (ChiefOfStaff.isCityTaken(city)){
+            throw new Exception("This city is already taken");
+        }
+        else{
+            this.city = city;
+            ChiefOfStaff.addCity(city);
+        }
         this.name = name;
         this.surname = surname;
         this.ID = ChiefOfStaff.getNewID();

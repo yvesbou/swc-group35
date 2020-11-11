@@ -1,8 +1,22 @@
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
 class BackendTechnicianTest {
 
-    @org.junit.jupiter.api.Test
-    void fixed() {
+    @Test
+    void fixedTest(int technicianID) {
+        BackendTechnician backendTechnician = new BackendTechnician("Thomas","Jefferson");
+        assertEquals("fixed!",backendTechnician.fixed(technicianID));
+    }
+    @Test
+    void BackendTechnicianTest() {
+        BackendTechnician backendTechnician = new BackendTechnician("Thomas","Jefferson");
+        assert
+    }
+    @Test
+    void main(){
+        fixedTest(100);
+        assertTrue(true);
     }
 }

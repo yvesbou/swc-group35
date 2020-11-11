@@ -10,13 +10,13 @@ public class Customer {
     //private CreditCard card;
     //private String customerType;
 
-    public Customer(String name, String surname, int age, int bankAccNr,
-                        int customerID, float savings, String customerType){
+    public Customer(String name, String surname, int age,
+                        float savings){
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.bankAccountNumber = bankAccNr;
-        this.customerID = customerID;
+        this.bankAccountNumber = ChiefOfCustomers.getNewBankAccountNumber();
+        this.customerID = ChiefOfCustomers.getNewCustomerID();
         this.savings = savings;
     }
     //GETTERS

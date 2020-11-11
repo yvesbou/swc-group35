@@ -2,9 +2,8 @@ import java.util.Iterator;
 
 public class SectionChief extends RegularEmployee{
     private String city;
-    public SectionChief(String name, String surname){
-        super(name,surname);
-        city = ChiefOfStaff.getNewCity();
+    public SectionChief(String name, String surname,String city){
+        super(name,surname,city);
     }
     public String upgradeGoldToPlatinum(int customerID){
         Customer customer;
