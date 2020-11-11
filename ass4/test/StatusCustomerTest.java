@@ -5,44 +5,47 @@ import static org.junit.jupiter.api.Assertions.*;
 class StatusCustomerTest {
 
     @Test
-    void deposit() {
+    void deposit(int amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
-        Nico.deposit(1000);
-        assertEquals(3000,NicoZala.getSavings());
+        Nico.deposit(amount);
+        assertEquals(amount+2000,NicoZala.getSavings());
     }
 
     @Test
-    void withdraw() {
+    void withdraw(int amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
-        Nico.withdraw(2000);
-        assertEquals(0,NicoZala.getSavings());
+        Nico.withdraw(amount);
+        assertEquals(2000-amount,NicoZala.getSavings());
 
 
     }
 
     @Test
-    void payment_wCreditCard() {
+    void payment_wCreditCard(CreditCard card, int amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
-        Nico.payment_wCreditCard(Nico.getCard(), 2000);
-        assertEquals(0,NicoZala.getSavings());
+        Nico.payment_wCreditCard(card, amount);
+        assertEquals(2000-amount,NicoZala.getSavings());
     }
 
     @Test
-    void payment_wBankTransfer() {
+    void payment_wBankTransfer(int amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
-        Nico.payment_wBankTransfer(2000);
-        assertEquals(0,NicoZala.getSavings());
+        Nico.payment_wBankTransfer(amount);
+        assertEquals(2000-amount,NicoZala.getSavings());
     }
 
     @Test
     void main(){
-        deposit();
-        withdraw();
-        payment_wBankTransfer();
-        payment_wBankTransfer();
+        Customer NicoZala = new Customer("Nico","Zala",22,2000);
+        StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
+        CreditCard card = Nico.getCard();
+        deposit(100);
+        withdraw(200);
+        payment_wBankTransfer(300);
+        payment_wCreditCard(card, 100);
     }
 }
