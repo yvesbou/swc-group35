@@ -6,7 +6,7 @@ public class SectionChief extends RegularEmployee{
         super(name,surname);
         city = ChiefOfStaff.getNewCity();
     }
-    public void upgradeGoldToPlatinum(int customerID){
+    public String upgradeGoldToPlatinum(int customerID){
         Customer customer;
         Iterator it = super.getCustomers().iterator();
         while(it.hasNext()){
@@ -23,17 +23,18 @@ public class SectionChief extends RegularEmployee{
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{
-                    System.out.println("You don't have the permission to do this action");
+                    return "You don't have the permission to do this action";
                 }
                 break;
             }
         }
-        System.out.println("No costumer with this ID found");
-
+        return "No costumer with this ID found";
+    }
+    public void Message_UpgradeGoldToPlatinum(String str){
+        System.out.println(str);
     }
 
-
-    public void downgradeGoldToRegular(int customerID){
+    public String downgradeGoldToRegular(int customerID){
         Customer customer;
         Iterator it = super.getCustomers().iterator();
         while(it.hasNext()){
@@ -50,11 +51,14 @@ public class SectionChief extends RegularEmployee{
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{
-                    System.out.println("You don't have the permission to do this action");
+                    return "You don't have the permission to do this action";
                 }
                 break;
             }
         }
-        System.out.println("No costumer with this ID found");
+        return "No costumer with this ID found";
+    }
+    public void Message_DowngradeGoldToRegular(String str){
+        System.out.println(str);
     }
 }

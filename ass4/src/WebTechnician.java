@@ -7,14 +7,18 @@ public class WebTechnician implements Technician{
         this.surname = surname;
         this.ID = ChiefOfStaff.getNewID();
     }
-    public void fixWebsite(){
+    public String fix(){
         try {
             Thread.sleep(30000);                 //1000 milliseconds is one second.
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
-        System.out.println("reparations complete");
+        return "reparations complete";
     }
+    public void fixedWebsite(String str){
+        System.out.println(str);
+    }
+
     public int getID(){
         return ID;
     }
