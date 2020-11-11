@@ -1,8 +1,8 @@
 public class GoldenCustomer extends BaseCustomer {
     public GoldenCustomer(Customer customer,
-    long y, int secNr, int serial,String n, String s){
+    int y){
         super(customer);
-        CreditCard card = new CreditCardGold(y,secNr,serial,n,s);
+        CreditCard card = new CreditCardGold(y,customer.getName(), customer.getSurname());
         super.setCard(card);
     }
 }

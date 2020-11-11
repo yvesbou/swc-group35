@@ -1,7 +1,7 @@
 public class CreditCardPlatinum extends CreditCard {
     private int limit;
-    public CreditCardPlatinum(long y, int secNr, int Serial,String n, String s){
-        super(y, secNr,Serial, n, s);
+    public CreditCardPlatinum(int y,String name, String surname){
+        super(y, name, surname);
     }
     public void setLimit() {
         this.limit = 10000;

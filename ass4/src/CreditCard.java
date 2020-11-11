@@ -10,12 +10,13 @@ public abstract class CreditCard{
     private String Surname;
     private int years;
 
-    public CreditCard(long y, int secNr, int Serial, String n, String s){
-        setExpirationDate(y);
-        setSecurityNumber(secNr);
-        setSerialNumber(Serial);
-        setName(n);
-        setSurname(s);
+    public CreditCard(int y, String name, String surname){
+        this.years = y;
+        setExpirationDate();
+        setSecurityNumber();
+        setSerialNumber();
+        setName(name);
+        setSurname(surname);
     }
 
     // setters //
@@ -25,18 +26,18 @@ public abstract class CreditCard{
     public void setSurname(String s){
         this.Surname = s;
     };
-    public void setSerialNumber(int serial){
-        this.SerialNumber = serial;
+    public void setSerialNumber(){
+        this.SerialNumber = CreditCardValidation.getNewSerialNumber();
     };
-    public void setSecurityNumber(int securityN){
-        this.SecurityNumber = securityN;
+    public void setSecurityNumber(){
+        this.SecurityNumber = CreditCardValidation.getNewSecurityNumber();
     };
-    public void setExpirationDate(long y){
-        Date currentDate = new Date(y);
-        //Calendar c = Calendar.getInstance();
-        //c.setTime(currentDate);
-        //c.add(Calendar.YEAR, years);
-        //this.ExpirationDate = c.getTime();
+    public void setExpirationDate(){
+        Date currentDate = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(currentDate);
+        c.add(Calendar.YEAR, years);
+        this.ExpirationDate = c.getTime();
     };
     public abstract void setLimit();
 

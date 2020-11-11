@@ -26,7 +26,7 @@ public class SectionChief extends RegularEmployee{
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
                     String s = customer.getSurname();
-                    BaseCustomer newCustomer = new PlatinumCustomer(customer,y,secNr,serial,n,s);
+                    BaseCustomer newCustomer = new PlatinumCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{
@@ -54,7 +54,7 @@ public class SectionChief extends RegularEmployee{
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
                     String s = customer.getSurname();
-                    BaseCustomer newCustomer = new RegularCustomer(customer,y,secNr,serial,n,s);
+                    BaseCustomer newCustomer = new RegularCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{
