@@ -7,5 +7,5 @@ public class CreditCardGold extends CreditCard {
     public void setLimit() {
         this.limit = 5000;
     }
-    public int 
+    public int getLimit(){ return limit;}
 }

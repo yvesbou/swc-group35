@@ -6,5 +6,7 @@ public class CreditCardPlatinum extends CreditCard {
     public void setLimit() {
         this.limit = 10000;
     }
+    public int getLimit(){ return limit;}
+
 
 }
