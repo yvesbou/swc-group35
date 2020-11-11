@@ -48,7 +48,21 @@ public abstract class BankEmployee {
     public List<Customer> getCustomers(){
         return this.customers;
     }
-
+    public Customer getCustomer(int customerID) throws Exception {
+        Customer customer;
+        Customer matching = null;
+        Iterator it = customers.iterator();
+        while(it.hasNext()){
+            customer =(Customer)it.next();
+            if (customer.getCustomerID()==customerID){
+                matching = customer;
+            }
+        }
+        if (matching ==null){
+            throw new Exception("customer not found");
+        }
+        return matching;
+    }
 
 }
 

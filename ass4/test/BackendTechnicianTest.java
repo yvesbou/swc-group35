@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class BackendTechnicianTest {
 
     @Test
-    void fixedTest(int technicianID) {
+    void fixBackendTest(int technicianID) {
         BackendTechnician backendTechnician = new BackendTechnician("Thomas","Jefferson");
-        assertEquals("fixed!",backendTechnician.fixed(technicianID));
+        assertEquals("fixed!",backendTechnician.fixBackend(technicianID));
     }
     @Test
     void BackendTechnicianTest(String name, String surname ) {
@@ -18,7 +18,7 @@ class BackendTechnicianTest {
     @Test
     void main(){
         BackendTechnicianTest("Elvis","Presley");
-        fixedTest(100);
+        fixBackendTest(100);
         assertTrue(true);
     }
 }
