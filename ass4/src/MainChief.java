@@ -1,8 +1,8 @@
 import java.util.Iterator;
 
 public class MainChief extends SectionChief{
-    public MainChief(String name, String surname,String city){
-        super(name, surname,city);
+    public MainChief(String name, String surname){
+        super(name, surname);
     }
     public void downgradePlatinumToGold(int customerID){
         Customer customer;

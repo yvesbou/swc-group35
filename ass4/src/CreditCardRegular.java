@@ -7,6 +7,4 @@ public class CreditCardRegular extends CreditCard {
         this.limit = 2000;
     }
     public int getLimit(){ return limit;}
-
-
 }
