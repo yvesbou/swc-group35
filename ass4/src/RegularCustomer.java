@@ -1,4 +1,4 @@
-public class RegularCustomer extends BaseCustomer {
+public class RegularCustomer extends StatusCustomer {
 
     public RegularCustomer(Customer customer,
                            int y){

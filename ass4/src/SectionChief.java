@@ -25,13 +25,13 @@ public class SectionChief extends RegularEmployee{
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
                     String s = customer.getSurname();
-                    BaseCustomer newCustomer = new PlatinumCustomer(customer,y);
+                    StatusCustomer newCustomer = new PlatinumCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
+                    return "Successfully upgraded";
                 }
                 else{
                     return "You don't have the permission to do this action";
                 }
-                break;
             }
         }
         return "No costumer with this ID found";
@@ -52,7 +52,7 @@ public class SectionChief extends RegularEmployee{
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
                     String s = customer.getSurname();
-                    BaseCustomer newCustomer = new RegularCustomer(customer,y);
+                    StatusCustomer newCustomer = new RegularCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{

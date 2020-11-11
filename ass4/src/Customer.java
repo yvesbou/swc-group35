@@ -6,7 +6,7 @@ public class Customer {
     private final int bankAccountNumber;
     private final int customerID;
     private float savings;
-    private BaseCustomer baseCustomer;
+    private StatusCustomer statusCustomer;
     //private CreditCard card;
     //private String customerType;
 
@@ -36,10 +36,10 @@ public class Customer {
     public float getSavings(){
         return this.savings;
     }
-    public CreditCard getCard(){return baseCustomer.getCard();}
+    public CreditCard getCard(){return statusCustomer.getCard();}
     //SETTERS
-    public void setBaseCustomer(BaseCustomer baseCustomer){
-        this.baseCustomer = baseCustomer;
+    public void setBaseCustomer(StatusCustomer statusCustomer){
+        this.statusCustomer = statusCustomer;
     }
     public void setSavings(float savings){
         this.savings = savings;

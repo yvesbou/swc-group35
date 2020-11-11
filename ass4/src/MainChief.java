@@ -16,7 +16,7 @@ public class MainChief extends SectionChief{
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
                     String s = customer.getSurname();
-                    BaseCustomer newCustomer = new GoldenCustomer(customer,y);
+                    StatusCustomer newCustomer = new GoldenCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{
@@ -39,7 +39,7 @@ public class MainChief extends SectionChief{
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
                     String s = customer.getSurname();
-                    BaseCustomer newCustomer = new RegularCustomer(customer,y);
+                    StatusCustomer newCustomer = new RegularCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{

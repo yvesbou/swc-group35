@@ -1,9 +1,9 @@
-public abstract class BaseCustomer  {
+public abstract class StatusCustomer {
 
     private CreditCard card;
     private Customer customer;
 
-    protected BaseCustomer(Customer customer){  // protected constructor
+    protected StatusCustomer(Customer customer){  // protected constructor
         this.customer = customer;
         customer.setBaseCustomer(this);
     }

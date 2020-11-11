@@ -28,7 +28,7 @@ public abstract class BankEmployee {
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
                     String s = customer.getSurname();
-                    BaseCustomer newCustomer = new GoldenCustomer(customer,y);
+                    StatusCustomer newCustomer = new GoldenCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{

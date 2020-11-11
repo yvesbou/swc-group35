@@ -1,4 +1,4 @@
-public class PlatinumCustomer extends BaseCustomer {
+public class PlatinumCustomer extends StatusCustomer {
     public PlatinumCustomer(Customer customer,
                             int y){
         super(customer);
