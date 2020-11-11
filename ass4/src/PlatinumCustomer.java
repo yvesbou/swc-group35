@@ -1,8 +1,8 @@
 public class PlatinumCustomer extends BaseCustomer {
     public PlatinumCustomer(Customer customer,
-                            long y, int secNr, int serial, String n, String s){
+                            int y){
         super(customer);
-        CreditCard card = new CreditCardPlatinum(y,secNr,serial,n,s);
+        CreditCard card = new CreditCardPlatinum(y, customer.getName(), customer.getSurname());
         super.setCard(card);
     }
 }
