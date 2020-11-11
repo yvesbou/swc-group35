@@ -1,7 +1,9 @@
 package src;
 public class GoldenCustomer extends BaseCustomer {
-    public GoldenCustomer(String name, String surname, int age, int bankAccNr,
-                           int customerID, float savings, CreditCard c){
-        super(name, surname, age, bankAccNr, customerID, savings, c, "Golden");
+    public GoldenCustomer(Customer customer,
+    long y, int secNr, int serial,String n, String s){
+        super(customer);
+        CreditCard card = new CreditCardGold(y,secNr,serial,n,s);
+        super.setCard(card);
     }
 }

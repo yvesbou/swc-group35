@@ -1,23 +1,93 @@
 package src;
+
+import java.util.Calendar;
 import java.util.Date;
 
-public interface CreditCard {
-    public void setName(String n);
-    public void setSurname(String s);
-    public void setSerialNumber(int Serial);
-    public void setSecurityNumber(int SecurityN);
-    public void setExpirationDate(int years);
-    public void setLevel(String lvl);
-    public void setLimit();
+public class CreditCard{
+    private Date ExpirationDate;
+    private int SecurityNumber;
+    private int SerialNumber;
+    private int Limit;
+    private String Level;
+    private String Name;
+    private String Surname;
+    private int years;
 
-    public String getName();
-    public String getSurname();
-    public int getSerialNumber();
-    public int getSecurityNumber();
-    public Boolean isExpired();
-    public String getLevel();
-    public int getLimit();
+    public CreditCard(long y, int secNr, int Serial, String Lvl, String n, String s){
+        setExpirationDate(y);
+        setSecurityNumber(secNr);
+        setSerialNumber(Serial);
+        setLevel(Lvl);
+        setLimit();
+        setName(n);
+        setSurname(s);
+    }
 
-    public Date getExpirationDate();
+    // setters //
+    public void setName(String n){
+        this.Name = n;
+    };
+    public void setSurname(String s){
+        this.Surname = s;
+    };
+    public void setSerialNumber(int serial){
+        this.SerialNumber = serial;
+    };
+    public void setSecurityNumber(int securityN){
+        this.SecurityNumber = securityN;
+    };
+    public void setExpirationDate(long y){
+        Date currentDate = new Date(y);
+        //Calendar c = Calendar.getInstance();
+        //c.setTime(currentDate);
+        //c.add(Calendar.YEAR, years);
+        //this.ExpirationDate = c.getTime();
+    };
+    public void setLevel(String lvl){
+        this.Level = lvl;
+    };
+    public void setLimit(){
+        switch (getLevel()){
+            case "Regular":
+                this.Limit = 2000;
+                break;
+            case "Gold":
+                this.Limit = 5000;
+                break;
+            case "Platinum":
+                this.Limit = 10000;
+                break;
+        }
+    };
 
+    // getters //
+    public String getName(){
+        return this.Name;
+    };
+    public String getSurname(){
+        return this.Surname;
+    };
+    public int getSerialNumber(){
+        return this.SerialNumber;
+    };
+    public int getSecurityNumber(){
+        return this.SecurityNumber;
+    };
+    public Date getExpirationDate(){
+        return this.ExpirationDate;
+    };
+    public String getLevel(){
+        return this.Level;
+    };
+    public int getLimit(){
+        return this.Limit;
+    };
+
+    // other methods //
+    public Boolean isExpired(){
+        long t = ExpirationDate.getTime();
+        Date today = new Date(t);
+        boolean expired = ExpirationDate.before(today);
+        return expired;
+    };
 }

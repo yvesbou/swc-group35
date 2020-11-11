@@ -6,7 +6,7 @@ public class BackendTechnician implements Technician{
     BackendTechnician(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.ID = ChiefOfStaff.getChiefOfStaff().getNewID();
+        this.ID = ChiefOfStaff.getNewID();
     }
     public void fixBackend(int technicianID){
         System.out.println("fixed!");

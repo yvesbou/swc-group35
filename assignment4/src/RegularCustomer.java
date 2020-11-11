@@ -2,10 +2,11 @@ package src;
 
 public class RegularCustomer extends BaseCustomer {
 
-    public RegularCustomer(String name, String surname, int age, int bankAccNr,
-                           int customerID, float savings){
-        super(name, surname, age, bankAccNr, customerID, savings, "Regular");
+    public RegularCustomer(Customer customer,
+                           long y, int secNr, int serial, String n, String s){
+        super(customer);
+        CreditCard card = new CreditCardRegular(y,secNr,serial,n,s);
     }
 
-    CreditCard c = new CreditCardRegular(5,)
+
 }

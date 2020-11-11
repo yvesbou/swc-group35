@@ -1,9 +1,9 @@
 package src;
 
 
-public class CreditCardRegular extends BaseCreditCard{
+public class CreditCardRegular extends CreditCard {
 
-    public CreditCardRegular(int y, int secNr, int Serial, String Lvl, String n, String s){
+    public CreditCardRegular(long y, int secNr, int Serial, String n, String s){
         super(y, secNr,Serial,"Regular", n, s);
     }
 

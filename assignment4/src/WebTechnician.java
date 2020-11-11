@@ -6,7 +6,7 @@ public class WebTechnician implements Technician{
     WebTechnician(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.ID = ChiefOfStaff.getChiefOfStaff().getNewID();
+        this.ID = ChiefOfStaff.getNewID();
     }
     public void fixWebsite(){
         try {
