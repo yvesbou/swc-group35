@@ -20,25 +20,21 @@ public class SectionChief extends RegularEmployee{
             customer = (Customer)it.next();
             if(customer.getCustomerID()==customerID){
                 if (customer.getCard() instanceof CreditCardGold){
-                    //Customer customer,
-                    int secNr = CreditCardValidation.getNewSecurityNumber();
-                    int serial = CreditCardValidation.getNewSerialNumber();
-                    String n = customer.getName();
-                    String s = customer.getSurname();
                     StatusCustomer newCustomer = new PlatinumCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
-                    return "Successfully upgraded";
+                    System.out.println("Successfully upgraded from Gold to Platinum");
+                    return "Successfully upgraded from Gold to Platinum";
                 }
                 else{
-                    return "You don't have the permission to do this action";
+                    System.out.println("Without a Gold Credit Card this action is invalid");
+                    return "Without a Gold Credit Card this action is invalid";
                 }
             }
         }
+        System.out.println("No costumer with this ID found");
         return "No costumer with this ID found";
     }
-    public void Message_UpgradeGoldToPlatinum(String str){
-        System.out.println(str);
-    }
+
 
     public String downgradeGoldToRegular(int customerID, int y){
         Customer customer;
@@ -48,22 +44,19 @@ public class SectionChief extends RegularEmployee{
             if(customer.getCustomerID()==customerID){
                 if (customer.getCard() instanceof CreditCardGold){
                     //Customer customer,
-                    int secNr = CreditCardValidation.getNewSecurityNumber();
-                    int serial = CreditCardValidation.getNewSerialNumber();
-                    String n = customer.getName();
-                    String s = customer.getSurname();
                     StatusCustomer newCustomer = new RegularCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
+                    System.out.println("Successfully downgraded from Gold to Regular");
+                    return "Successfully downgraded from Gold to Regular";
                 }
                 else{
-                    return "You don't have the permission to do this action";
+                    System.out.println("Without a Gold Credit Card this action is invalid");
+                    return "Without a Gold Credit Card this action is invalid";
                 }
-                break;
             }
         }
+        System.out.println("No costumer with this ID found");
         return "No costumer with this ID found";
     }
-    public void Message_DowngradeGoldToRegular(String str){
-        System.out.println(str);
-    }
+
 }

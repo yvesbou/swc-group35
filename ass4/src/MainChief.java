@@ -4,30 +4,29 @@ public class MainChief extends SectionChief{
     public MainChief(String name, String surname){
         super(name, surname);
     }
-    public void downgradePlatinumToGold(int customerID, int y){
+
+    public String downgradePlatinumToGold(int customerID, int y){
         Customer customer;
         Iterator it = super.getCustomers().iterator();
         while(it.hasNext()){
             customer = (Customer)it.next();
             if(customer.getCustomerID()==customerID){
                 if (customer.getCard() instanceof CreditCardPlatinum){
-                    //Customer customer,
-                    int secNr = CreditCardValidation.getNewSecurityNumber();
-                    int serial = CreditCardValidation.getNewSerialNumber();
-                    String n = customer.getName();
-                    String s = customer.getSurname();
                     StatusCustomer newCustomer = new GoldenCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
+                    System.out.println("Successfully downgraded from Platinum to Gold");
+                    return "Successfully downgraded from Platinum to Gold";
                 }
                 else{
-                    System.out.println("You don't have the permission to do this action");
+                    System.out.println("Without a Platinum Card this action is invalid");
+                    return "Without a Platinum Card this action is invalid";
                 }
-                break;
             }
         }
         System.out.println("No costumer with this ID found");
+        return "No costumer with this ID found";
     }
-    public void downgradePlatinumToRegular(int customerID, int y){
+    public String downgradePlatinumToRegular(int customerID, int y){
         Customer customer;
         Iterator it = super.getCustomers().iterator();
         while(it.hasNext()){
@@ -35,19 +34,18 @@ public class MainChief extends SectionChief{
             if(customer.getCustomerID()==customerID){
                 if (customer.getCard() instanceof CreditCardGold){
                     //Customer customer,
-                    int secNr = CreditCardValidation.getNewSecurityNumber();
-                    int serial = CreditCardValidation.getNewSerialNumber();
-                    String n = customer.getName();
-                    String s = customer.getSurname();
                     StatusCustomer newCustomer = new RegularCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
+                    System.out.println("Successfully downgraded from Platinum to Regular");
+                    return "Successfully downgraded from Platinum to Regular";
                 }
                 else{
-                    System.out.println("You don't have the permission to do this action");
+                    System.out.println("Without a Platinum Card this action is invalid");
+                    return "Without a Platinum Card this action is invalid";
                 }
-                break;
             }
         }
         System.out.println("No costumer with this ID found");
+        return "No costumer with this ID found";
     }
 }
