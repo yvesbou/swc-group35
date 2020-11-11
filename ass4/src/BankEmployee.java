@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class BankEmployee {
+public abstract class BankEmployee {
     private final String name;
     private final String surname;
     private final int ID;
@@ -16,7 +16,7 @@ public class BankEmployee {
     public void addCustomer(Customer customer){
         customers.add(customer);
     }
-    public void upgradeRegularToGold(int CustomerID){
+    public void upgradeRegularToGold(int CustomerID, int y){
         Customer customer;
         Iterator it = customers.iterator();
         while(it.hasNext()){
@@ -24,12 +24,11 @@ public class BankEmployee {
             if(customer.getCustomerID()==ID){
                 if (customer.getCard() instanceof CreditCardRegular){
                     //Customer customer,
-                    long y = System.currentTimeMillis() +1000;
                     int secNr = CreditCardValidation.getNewSecurityNumber();
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
                     String s = customer.getSurname();
-                    BaseCustomer newCustomer = new GoldenCustomer(customer,y,secNr,serial,n,s);
+                    BaseCustomer newCustomer = new GoldenCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{

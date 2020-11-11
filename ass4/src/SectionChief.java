@@ -13,7 +13,7 @@ public class SectionChief extends RegularEmployee{
             ChiefOfStaff.addCity(city);
         }
     }
-    public String upgradeGoldToPlatinum(int customerID){
+    public String upgradeGoldToPlatinum(int customerID, int y){
         Customer customer;
         Iterator it = super.getCustomers().iterator();
         while(it.hasNext()){
@@ -21,7 +21,6 @@ public class SectionChief extends RegularEmployee{
             if(customer.getCustomerID()==customerID){
                 if (customer.getCard() instanceof CreditCardGold){
                     //Customer customer,
-                    long y = System.currentTimeMillis()+1000;
                     int secNr = CreditCardValidation.getNewSecurityNumber();
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
@@ -41,7 +40,7 @@ public class SectionChief extends RegularEmployee{
         System.out.println(str);
     }
 
-    public String downgradeGoldToRegular(int customerID){
+    public String downgradeGoldToRegular(int customerID, int y){
         Customer customer;
         Iterator it = super.getCustomers().iterator();
         while(it.hasNext()){
@@ -49,7 +48,6 @@ public class SectionChief extends RegularEmployee{
             if(customer.getCustomerID()==customerID){
                 if (customer.getCard() instanceof CreditCardGold){
                     //Customer customer,
-                    long y = System.currentTimeMillis()+1000;
                     int secNr = CreditCardValidation.getNewSecurityNumber();
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();

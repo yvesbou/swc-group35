@@ -1,4 +1,4 @@
-public class BaseCustomer  {
+public abstract class BaseCustomer  {
 
     private CreditCard card;
     private Customer customer;

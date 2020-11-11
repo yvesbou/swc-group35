@@ -4,7 +4,7 @@ public class MainChief extends SectionChief{
     public MainChief(String name, String surname){
         super(name, surname);
     }
-    public void downgradePlatinumToGold(int customerID){
+    public void downgradePlatinumToGold(int customerID, int y){
         Customer customer;
         Iterator it = super.getCustomers().iterator();
         while(it.hasNext()){
@@ -12,12 +12,11 @@ public class MainChief extends SectionChief{
             if(customer.getCustomerID()==customerID){
                 if (customer.getCard() instanceof CreditCardPlatinum){
                     //Customer customer,
-                    long y = System.currentTimeMillis()+1000;
                     int secNr = CreditCardValidation.getNewSecurityNumber();
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
                     String s = customer.getSurname();
-                    BaseCustomer newCustomer = new GoldenCustomer(customer,y,secNr,serial,n,s);
+                    BaseCustomer newCustomer = new GoldenCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{
@@ -28,7 +27,7 @@ public class MainChief extends SectionChief{
         }
         System.out.println("No costumer with this ID found");
     }
-    public void downgradePlatinumToRegular(int customerID){
+    public void downgradePlatinumToRegular(int customerID, int y){
         Customer customer;
         Iterator it = super.getCustomers().iterator();
         while(it.hasNext()){
@@ -36,12 +35,11 @@ public class MainChief extends SectionChief{
             if(customer.getCustomerID()==customerID){
                 if (customer.getCard() instanceof CreditCardGold){
                     //Customer customer,
-                    long y = System.currentTimeMillis()+1000;
                     int secNr = CreditCardValidation.getNewSecurityNumber();
                     int serial = CreditCardValidation.getNewSerialNumber();
                     String n = customer.getName();
                     String s = customer.getSurname();
-                    BaseCustomer newCustomer = new RegularCustomer(customer,y,secNr,serial,n,s);
+                    BaseCustomer newCustomer = new RegularCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
                 }
                 else{
