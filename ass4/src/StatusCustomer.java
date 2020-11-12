@@ -19,9 +19,9 @@ public abstract class StatusCustomer {
         String s = "Deposition successful";
         if (amount <0.0){
             s = "You cannot deposit a negative amount";
-        }
+        } else{
         float newAmount = customer.getSavings() + amount;
-        customer.setSavings(newAmount);
+        customer.setSavings(newAmount);}
         return s;
     };
     public float withdraw(float amount){

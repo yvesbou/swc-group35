@@ -32,7 +32,7 @@ public class MainChief extends SectionChief{
         while(it.hasNext()){
             customer = (Customer)it.next();
             if(customer.getCustomerID()==customerID){
-                if (customer.getCard() instanceof CreditCardGold){
+                if (customer.getCard() instanceof CreditCardPlatinum){
                     //Customer customer,
                     StatusCustomer newCustomer = new RegularCustomer(customer,y);
                     customer.setStatusCustomer(newCustomer);

@@ -61,9 +61,14 @@ public abstract class CreditCard{
 
     // other methods //
     public Boolean isExpired(){
-        long t = ExpirationDate.getTime();
-        Date today = new Date(t);
-        boolean expired = ExpirationDate.before(today);
+        boolean expired;
+
+        Calendar calndr2 = Calendar.getInstance();
+        Date today = calndr2.getTime();
+
+        int exp = ExpirationDate.compareTo(today);
+        if (exp > 0){expired = false;}
+        else{expired=true;}
         return expired;
     };
 }

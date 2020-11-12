@@ -31,7 +31,7 @@ class RegularEmployeeTest {
         assertEquals("Without a Regular Credit Card this action is invalid",bankEmployee.upgradeRegularToGold(goldenCustomer.getCustomerID(),3));
         assertEquals("Without a Regular Credit Card this action is invalid",bankEmployee.upgradeRegularToGold(platinumCustomer.getCustomerID(),3));
 
-        assertEquals("No costumer with this ID found",bankEmployee.upgradeRegularToGold(goldenCustomer.getCustomerID()+1000,3));
+        assertEquals("No customer with this ID found",bankEmployee.upgradeRegularToGold(goldenCustomer.getCustomerID()+1000,3));
 
     }
 
@@ -50,6 +50,7 @@ class RegularEmployeeTest {
         checkConstructor(Emjee);
         addCustomerTest(Emjee,ZoeSchmid);
         getCustomerTest(Emjee, HaraldSchmidt);
+        getCustomerTest(Emjee, BarackObama);
         upgradeRegularToGoldTest(ZoeSchmid,HaraldSchmidt,BarackObama,Emjee);
         assertTrue(true);
     }

@@ -13,8 +13,8 @@ class CreditCardTest {
         StatusCustomer regularCustomer = new RegularCustomer(customer, 1);
         assertFalse(customer.getCard().isExpired());
         Customer customer2 = new Customer("Olaf", "Schulz", 89, 200300);
-        StatusCustomer regularCustomer2 = new RegularCustomer(customer, 0);
-        assertTrue(customer.getCard().isExpired());
+        StatusCustomer regularCustomer2 = new RegularCustomer(customer2, 0);
+        assertTrue(customer2.getCard().isExpired());
     }
 
     @Test
@@ -22,11 +22,11 @@ class CreditCardTest {
         Customer customer = new Customer("Olaf", "Schulz", 89, 200300);
         StatusCustomer regularCustomer = new RegularCustomer(customer, 1);
         Customer customer2 = new Customer("Olaf", "Schulz", 89, 200300);
-        StatusCustomer regularCustomer2 = new RegularCustomer(customer, 0);
+        StatusCustomer regularCustomer2 = new RegularCustomer(customer2, 0);
         //testing if the card serial number set is not null
         assertNotNull(regularCustomer.getCard().getSerialNumber());
         //testing if two cards can have the same number.
-        assertFalse(regularCustomer.getCard().getSerialNumber() == regularCustomer.getCard().getSerialNumber());
+        assertFalse(regularCustomer.getCard().getSerialNumber() == regularCustomer2.getCard().getSerialNumber());
 
 
     }
@@ -36,15 +36,15 @@ class CreditCardTest {
         Customer customer = new Customer("Olaf", "Schulz", 89, 200300);
         StatusCustomer regularCustomer = new RegularCustomer(customer, 1);
         Customer customer2 = new Customer("Olaf", "Schulz", 89, 200300);
-        StatusCustomer regularCustomer2 = new RegularCustomer(customer, 0);
+        StatusCustomer regularCustomer2 = new RegularCustomer(customer2, 0);
         //testing if the card serial number set is not null
         assertNotNull(regularCustomer.getCard().getSecurityNumber());
 
         //testing if two cards can have the same number.
-        assertFalse(regularCustomer.getCard().getSecurityNumber() == regularCustomer.getCard().getSecurityNumber());
+        assertFalse(regularCustomer.getCard().getSecurityNumber() == regularCustomer2.getCard().getSecurityNumber());
 
         //testing if security number has 3 digits;
-        assertTrue(regularCustomer.getCard().getSecurityNumber() >= 100 && regularCustomer.getCard().getSecurityNumber() <= 99);
+        assertTrue(regularCustomer.getCard().getSecurityNumber() >= 100 && regularCustomer2.getCard().getSecurityNumber() <= 999);
 
     }
 
@@ -53,7 +53,7 @@ class CreditCardTest {
         Customer customer = new Customer("Olaf", "Schulz", 89, 200300);
         StatusCustomer regularCustomer = new RegularCustomer(customer, 1);
         Customer customer2 = new Customer("Olaf", "Schulz", 89, 200300);
-        StatusCustomer regularCustomer2 = new RegularCustomer(customer, 0);
+        StatusCustomer regularCustomer2 = new RegularCustomer(customer2, 0);
         //check if expiration Date is of type Date
         assertTrue(regularCustomer.getCard().getExpirationDate() instanceof Date);
     }
@@ -63,7 +63,7 @@ class CreditCardTest {
         Customer customer = new Customer("Olaf", "Schulz", 89, 200300);
         StatusCustomer regularCustomer = new RegularCustomer(customer, 1);
         Customer customer2 = new Customer("Olaf", "Schulz", 89, 200300);
-        StatusCustomer regularCustomer2 = new RegularCustomer(customer, 0);
+        StatusCustomer regularCustomer2 = new RegularCustomer(customer2, 0);
         assertEquals(2000, regularCustomer.getCard().getLimit());
     }
 
@@ -99,7 +99,7 @@ class CreditCardTest {
         assertFalse(regular.getSerialNumber() == regular2.getSerialNumber());
 
         //testing if security number has 3 digits;
-        assertTrue(regular.getSecurityNumber() >= 100 && regular.getSecurityNumber() <= 99);
+        assertTrue(regular.getSecurityNumber() >= 100 && regular.getSecurityNumber() <= 999);
 
     }
 
