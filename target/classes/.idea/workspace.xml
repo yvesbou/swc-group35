@@ -20,11 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="048900ed-e087-4136-8740-b11772f4fb10" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../assignment3/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BattleShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BattleShip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Carrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Carrier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PatrolBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatrolBoat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Submarine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Submarine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/BattleShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/BattleShip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/Carrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/Carrier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/Commander.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/PatrolBoat.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/PatrolBoat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/Submarine.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/out/production/assignment3/src/Submarine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/BattleShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/BattleShip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/Carrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/Carrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/HumanPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/PatrolBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/PatrolBoat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment3/src/Submarine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment3/src/Submarine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,17 +79,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -98,6 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602668707176</updated>
       <workItem from="1602668708286" duration="13261000" />
+      <workItem from="1603291212548" duration="691000" />
     </task>
     <servers />
   </component>
@@ -114,6 +111,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="461" y="86" key="#com.intellij.ide.util.MemberChooser" timestamp="1602686727601">

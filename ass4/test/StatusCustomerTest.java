@@ -4,16 +4,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StatusCustomerTest {
 
-
-    void deposit(float amount) {
+    /**
+     * @param amount
+     *
+     *This method tests the deposit method of the StatusCustomer class.
+     * It test tests if the amount added, gets actually added to the savings.
+     */
+    void depositTest(float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
         Nico.deposit(amount);
         assertEquals(amount+2000,NicoZala.getSavings());
     }
 
+    void depositNegativeAmountTest(float amount) {
+        Customer NicoZala = new Customer("Nico","Zala",22,2000);
+        StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
+        Nico.deposit(amount);
+        assertEquals(amount+2000,NicoZala.getSavings());
+    }
 
-    void withdraw(float amount) {
+    void withdrawTest(float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
         Nico.withdraw(amount);
@@ -23,7 +34,7 @@ class StatusCustomerTest {
     }
 
 
-    void payment_wCreditCard(CreditCard card, float amount) {
+    void payment_wCreditCardTest(CreditCard card, float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
         Nico.payment_wCreditCard(card, amount);
@@ -31,7 +42,7 @@ class StatusCustomerTest {
     }
 
 
-    void payment_wBankTransfer(float amount) {
+    void payment_wBankTransferTest(float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
         Nico.payment_wBankTransfer(amount);
@@ -43,10 +54,10 @@ class StatusCustomerTest {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
         CreditCard card = Nico.getCard();
-        deposit(100);
-        withdraw(200);
-        payment_wBankTransfer(300);
-        payment_wCreditCard(card, 100);
+        depositTest(100);
+        withdrawTest(200);
+        payment_wBankTransferTest(300);
+        payment_wCreditCardTest(card, 100);
         assertTrue(true);
     }
 }
