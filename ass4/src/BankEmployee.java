@@ -27,13 +27,15 @@ public abstract class BankEmployee {
                     //Customer customer,
                     StatusCustomer newCustomer = new GoldenCustomer(customer,y);
                     customer.setBaseCustomer(newCustomer);
-                }
-                else{
-                    s = "You don't have the permission to do this action";
+                    s = "Successfully upgraded from Regular to Gold";
                     System.out.println(s);
                     return s;
                 }
-                break;
+                else{
+                    s = "Without a Regular Credit Card this action is invalid";
+                    System.out.println(s);
+                    return s;
+                }
             }
         }
         s = "No costumer with this ID found";
@@ -48,7 +50,7 @@ public abstract class BankEmployee {
     public List<Customer> getCustomers(){
         return this.customers;
     }
-    public Customer getCustomer(int customerID) throws Exception {
+    public Customer getCustomer(int customerID) {
         Customer customer;
         Customer matching = null;
         Iterator it = customers.iterator();
@@ -57,9 +59,6 @@ public abstract class BankEmployee {
             if (customer.getCustomerID()==customerID){
                 matching = customer;
             }
-        }
-        if (matching ==null){
-            throw new Exception("customer not found");
         }
         return matching;
     }
