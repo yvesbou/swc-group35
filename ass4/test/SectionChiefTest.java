@@ -152,7 +152,7 @@ class SectionChiefTest {
     void main(){
         constructorTest("Hannes", "Meili");
         setCityTest("Paris");
-        setSameCityTwiceTest("Paris");
+        setSameCityTwiceTest("Riga");
 
         Customer c4 = new Customer("Wenjie", "He", 26, 1500);
         StatusCustomer b4 = new RegularCustomer(c4,4);
@@ -167,7 +167,7 @@ class SectionChiefTest {
         downgradeGoldToRegularTest(c2.getCustomerID(),c2);
         downgradeGoldToRegularRegularsInputTest(c4.getCustomerID(),c4);
         downgradeGoldToRegularNonValidIDTest(1000,c2);
-        
+
         assertTrue(true);
     }
 }

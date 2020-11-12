@@ -4,7 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RegularEmployeeTest {
 
-
+    /**
+     * This test covers
+     * @param regularEmployee
+     */
     void checkConstructor(RegularEmployee regularEmployee){
         assertEquals("Choenpel",regularEmployee.getName());
         assertEquals("Emjee",regularEmployee.getSurname());
