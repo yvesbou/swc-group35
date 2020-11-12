@@ -63,6 +63,7 @@ class StatusCustomerTest {
     void withdrawSavingsTest(float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
+        Nico.withdraw(amount);
         assertEquals(2000-amount ,NicoZala.getSavings());
     }
 
@@ -71,6 +72,7 @@ class StatusCustomerTest {
      *
      * it tests, it the withdraw method returns 0, if we want to withdraw an amount grreater, than the
      * savings.
+     * @param amount
      */
     void withdrawBelowSavingsTest(float amount){
         Customer NicoZala = new Customer("Nico","Zala",22,2000);

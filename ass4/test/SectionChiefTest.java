@@ -22,24 +22,39 @@ class SectionChiefTest {
         assertEquals(surname,sectionChief.getSurname());
     }
 
-    
+    /**
+     * This test method covers the setCity method of the SectionChief Class.
+     *
+     * This method tests, if a confirmation String is returned, when a Section chief is assigned to
+     * a new city.
+     *
+     * @param city
+     */
     void setCityTest(String city) {
+        SectionChief sectionChief = new SectionChief("Coca", "Cola");
+        assertEquals("The section chief is responsible for " + city.toString(), sectionChief.setCity(city));
+    }
+
+    /**
+     * This test covers the setCity method of the SectionChief Class.
+     *
+     * The method tests, if the method setCity return an error String if the same city
+     * will get set twice for different SectionChief instances.
+     * @param city
+     */
+    void setSameCityTwiceTest(String city){
         SectionChief sectionChief = new SectionChief("Club", "Mate");
         SectionChief sectionChief2 = new SectionChief("Coca", "Cola");
-        assertEquals("The section chief is responsible for " + city.toString(), sectionChief.setCity(city));
         assertEquals("This city is already taken",sectionChief2.setCity(city));
     }
 
 
-    void upgradeGoldToPlatinum() {
-        Customer c2 = new Customer("Margherita", "Razzoli", 32,1000);
-        StatusCustomer b2 = new GoldenCustomer(c2,3);
+    void upgradeGoldToPlatinumTest(Customer c2) {
         SectionChief Yves = new SectionChief("Yves", "Boutellier");
-
+        Yves.addCustomer(c2);
         assertEquals("Successfully upgraded from Gold to Platinum",Yves.upgradeGoldToPlatinum(c2.getCustomerID(),5));
-
-        Customer c4 = new Customer("Wenjie", "He", 26, 1500);
-        StatusCustomer b4 = new RegularCustomer(c4,4);
+    }
+    void upgradeGoldToPlatinumTestRegularAsInput(Customer c2){
 
         assertEquals("Without a Gold Credit Card this action is invalid",Yves.upgradeGoldToPlatinum(c4.getCustomerID(),3));
 
@@ -66,7 +81,17 @@ class SectionChiefTest {
     @Test
     void main(){
         constructorTest("Hannes", "Meili");
-        upgradeGoldToPlatinum();
+        setCityTest("Paris");
+        setSameCityTwiceTest("Paris");
+
+        Customer c4 = new Customer("Wenjie", "He", 26, 1500);
+        StatusCustomer b4 = new RegularCustomer(c4,4);
+
+        Customer c2 = new Customer("Margherita", "Razzoli", 32,1000);
+        StatusCustomer b2 = new GoldenCustomer(c2,3);
+
+        upgradeGoldToPlatinumTest(c2);
+        upgradeGoldToPlatinumTestRegularAsInput(c4);
         downgradeGoldToRegular();
         assertTrue(true);
     }
