@@ -19,9 +19,10 @@ class StatusCustomerTest {
 
     void depositNegativeAmountTest(float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
+        float savings = NicoZala.getSavings();
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
         Nico.deposit(amount);
-        assertEquals(amount+2000,NicoZala.getSavings());
+        assertEquals(savings,NicoZala.getSavings());
     }
 
     void withdrawTest(float amount) {
@@ -29,18 +30,23 @@ class StatusCustomerTest {
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
         Nico.withdraw(amount);
         assertEquals(2000-amount,NicoZala.getSavings());
-
-
     }
 
-
-    void payment_wCreditCardTest(CreditCard card, float amount) {
+    void withdrawNegativeAmountTest(float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
-        Nico.payment_wCreditCard(card, amount);
-        assertEquals(2000-amount,NicoZala.getSavings());
+        Nico.withdraw(amount);
+        assertEquals(2000,NicoZala.getSavings());
     }
 
+
+    void payment_wCreditCardTest( float amount) {
+        Customer NicoZala = new Customer("Nico","Zala",22,2000);
+        StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
+        Nico.payment_wCreditCard(NicoZala.getCard(), amount);
+        assertEquals(2000-amount,NicoZala.getSavings());
+    }
+    
 
     void payment_wBankTransferTest(float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
@@ -51,13 +57,12 @@ class StatusCustomerTest {
 
     @Test
     void main(){
-        Customer NicoZala = new Customer("Nico","Zala",22,2000);
-        StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
-        CreditCard card = Nico.getCard();
         depositTest(100);
+        depositNegativeAmountTest(-100);
+        withdrawNegativeAmountTest(-200);
         withdrawTest(200);
         payment_wBankTransferTest(300);
-        payment_wCreditCardTest(card, 100);
+        payment_wCreditCardTest( 100);
         assertTrue(true);
     }
 }
