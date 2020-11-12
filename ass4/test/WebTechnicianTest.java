@@ -10,13 +10,13 @@ class WebTechnicianTest {
 
     /**
      * Test the constructor of the WebTechnician.
-     * This method test the name and the surname get set correctly in
+     * This method tests if the name and the surname get set correctly in
      * the constructor of the constructorTest.
      *
      * This test covers:
      * the constructor of WebTechnician
      * getName method
-     * gerSurname method
+     * getSurname method
      *
      * @param name
      * @param surname

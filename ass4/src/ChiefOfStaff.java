@@ -12,7 +12,7 @@ public abstract class ChiefOfStaff {
         String s;
         if (!isCityTaken(city)) {
             takenCities.add(city);
-            s = "Successfully added new City";
+            s = "Successfully added new City.";
             System.out.println(s);
         }
         else{
