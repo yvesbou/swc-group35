@@ -13,6 +13,7 @@ public abstract class BankEmployee {
         this.surname = surname;
         this.ID = ChiefOfStaff.getNewID();
     }
+
     public void addCustomer(Customer customer){
         customers.add(customer);
     }
@@ -44,6 +45,8 @@ public abstract class BankEmployee {
 
     }
     //GETTERS
+    public String getName(){ return name; }
+    public String getSurname(){ return surname; }
     public int getID(){
         return ID;
     }

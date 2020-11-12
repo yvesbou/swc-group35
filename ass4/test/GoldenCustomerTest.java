@@ -20,5 +20,6 @@ class GoldenCustomerTest {
     @Test
     void main(){
         GoldCustomer();
+        assertTrue(true);
     }
 }

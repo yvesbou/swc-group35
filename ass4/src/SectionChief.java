@@ -5,12 +5,13 @@ public class SectionChief extends RegularEmployee{
     public SectionChief(String name, String surname){
         super(name,surname);
     }
-    public void setCity(String city) throws Exception{
+    public String setCity(String city) {
         if (ChiefOfStaff.isCityTaken(city)) {
-            throw new Exception("This city is already taken");
+            return "This city is already taken";
         } else {
             this.city = city;
             ChiefOfStaff.addCity(city);
+            return "The section chief is responsible for " + city.toString();
         }
     }
     public String upgradeGoldToPlatinum(int customerID, int y){

@@ -5,7 +5,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SectionChiefTest {
 
-    //todo: setCity not done yet
+    @Test
+    void constructorTest(String name, String surname){
+        SectionChief sectionChief = new SectionChief(name, surname);
+        assertEquals(name, sectionChief.getName());
+        assertEquals(surname,sectionChief.getSurname());
+    }
+
+    @Test
+    void setCityTest(String city) {
+        SectionChief sectionChief = new SectionChief("Club", "Mate");
+        SectionChief sectionChief2 = new SectionChief("Coca", "Cola");
+        assertEquals("The section chief is responsible for " + city.toString(), sectionChief.setCity(city));
+        assertEquals("This city is already taken",sectionChief2.setCity(city));
+    }
 
     @Test
     void upgradeGoldToPlatinum() {
@@ -28,6 +41,8 @@ class SectionChiefTest {
         Customer c2 = new Customer("Margherita", "Razzoli", 32,1000);
         StatusCustomer b2 = new GoldenCustomer(c2,3);
         SectionChief Yves = new SectionChief("Yves", "Boutellier");
+        SectionChief Vincente = new SectionChief("Vincente", "DelMuller");
+        SectionChief R2D2 = new SectionChief("R2", "D2");
 
         assertEquals("Succesfully downgraded from Gold to Regular", Yves.downgradeGoldToRegular(c2.getCustomerID(),3));
 

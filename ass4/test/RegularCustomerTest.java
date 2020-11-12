@@ -18,7 +18,9 @@ class RegularCustomerTest {
         assertEquals(4000,HanaBühler.getSavings());
 
     }
+    @Test
     void main(){
         RegularCustomer();
+        assertTrue(true);
     }
 }

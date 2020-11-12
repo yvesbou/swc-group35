@@ -19,7 +19,7 @@ public abstract class StatusCustomer {
         float newAmount = customer.getSavings() + amount;
         customer.setSavings(newAmount);
     };
-    public int withdraw(int amount){
+    public float withdraw(float amount){
         if (amount > customer.getSavings()){
             return 0;
         }else{
@@ -27,7 +27,7 @@ public abstract class StatusCustomer {
             customer.setSavings(newSavings);
             return amount;}
     }
-    public void payment_wCreditCard(CreditCard card, int amount){
+    public void payment_wCreditCard(CreditCard card, float amount){
         if (this.card.isExpired()){
             System.out.println("The card is expired, please make an appointment with your Customer Consultant");
         }
