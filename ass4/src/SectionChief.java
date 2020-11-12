@@ -22,7 +22,7 @@ public class SectionChief extends RegularEmployee{
             if(customer.getCustomerID()==customerID){
                 if (customer.getCard() instanceof CreditCardGold){
                     StatusCustomer newCustomer = new PlatinumCustomer(customer,y);
-                    customer.setBaseCustomer(newCustomer);
+                    customer.setStatusCustomer(newCustomer);
                     System.out.println("Successfully upgraded from Gold to Platinum");
                     return "Successfully upgraded from Gold to Platinum";
                 }
@@ -46,7 +46,7 @@ public class SectionChief extends RegularEmployee{
                 if (customer.getCard() instanceof CreditCardGold){
                     //Customer customer,
                     StatusCustomer newCustomer = new RegularCustomer(customer,y);
-                    customer.setBaseCustomer(newCustomer);
+                    customer.setStatusCustomer(newCustomer);
                     System.out.println("Successfully downgraded from Gold to Regular");
                     return "Successfully downgraded from Gold to Regular";
                 }

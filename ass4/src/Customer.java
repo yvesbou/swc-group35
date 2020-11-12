@@ -38,7 +38,7 @@ public class Customer {
     }
     public CreditCard getCard(){return statusCustomer.getCard();}
     //SETTERS
-    public void setBaseCustomer(StatusCustomer statusCustomer){
+    public void setStatusCustomer(StatusCustomer statusCustomer){
         this.statusCustomer = statusCustomer;
     }
     public void setSavings(float savings){

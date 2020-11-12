@@ -4,6 +4,7 @@ public class RegularCustomer extends StatusCustomer {
                            int y){
         super(customer);
         CreditCard card = new CreditCardRegular(y, customer.getName(), customer.getSurname());
+        super.setCard(card);
     }
 
 

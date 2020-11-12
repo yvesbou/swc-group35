@@ -5,7 +5,7 @@ public abstract class StatusCustomer {
 
     protected StatusCustomer(Customer customer){  // protected constructor
         this.customer = customer;
-        customer.setBaseCustomer(this);
+        customer.setStatusCustomer(this);
     }
     //GETTERS
     public CreditCard getCard(){
@@ -47,7 +47,7 @@ public abstract class StatusCustomer {
     };
     public void payment_wBankTransfer(float amount){
         if (customer.getSavings()-amount >0){
-            float newSavings = customer.getSavings();
+            float newSavings = customer.getSavings()-amount;
             customer.setSavings(newSavings);
         }
         else{

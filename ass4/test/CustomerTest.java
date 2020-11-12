@@ -12,8 +12,8 @@ class CustomerTest {
         assertEquals(surname, customer.getSurname());
         assertEquals(savings,customer.getSavings());
         assertEquals(age,customer.getAge());
-        assertEquals(0,customer.getBankAccountNumber());
-        assertEquals(0, customer.getCustomerID());
+        assertEquals(CustomerSystem.bankAccountNumber,customer.getBankAccountNumber());
+        assertEquals(CustomerSystem.customerID, customer.getCustomerID());
 
     }
 

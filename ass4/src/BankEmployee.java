@@ -23,11 +23,11 @@ public abstract class BankEmployee {
         Iterator it = customers.iterator();
         while(it.hasNext()){
             customer = (Customer)it.next();
-            if(customer.getCustomerID()==ID){
+            if(customer.getCustomerID()==CustomerID){
                 if (customer.getCard() instanceof CreditCardRegular){
                     //Customer customer,
                     StatusCustomer newCustomer = new GoldenCustomer(customer,y);
-                    customer.setBaseCustomer(newCustomer);
+                    customer.setStatusCustomer(newCustomer);
                     s = "Successfully upgraded from Regular to Gold";
                     System.out.println(s);
                     return s;
@@ -39,7 +39,7 @@ public abstract class BankEmployee {
                 }
             }
         }
-        s = "No costumer with this ID found";
+        s = "No customer with this ID found";
         System.out.println(s);
         return s;
 
