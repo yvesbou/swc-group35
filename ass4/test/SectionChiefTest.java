@@ -48,20 +48,89 @@ class SectionChiefTest {
         assertEquals("This city is already taken",sectionChief2.setCity(city));
     }
 
-
-    void upgradeGoldToPlatinumTest(Customer c2) {
+    /**
+     *This function covers the downgradeGoldToRegular(int customerID) function in the SectionChief Class
+     *
+     * It test if the downgrade of a customer is sucessfull by asserting the return String of the function
+     *
+     * @param ID
+     * @param c2
+     */
+    void downgradeGoldToRegularTest(int ID,Customer c2) {
         SectionChief Yves = new SectionChief("Yves", "Boutellier");
         Yves.addCustomer(c2);
-        assertEquals("Successfully upgraded from Gold to Platinum",Yves.upgradeGoldToPlatinum(c2.getCustomerID(),5));
-    }
-    void upgradeGoldToPlatinumTestRegularAsInput(Customer c2){
-
-        assertEquals("Without a Gold Credit Card this action is invalid",Yves.upgradeGoldToPlatinum(c4.getCustomerID(),3));
-
-        assertEquals("No costumer with this ID found",Yves.upgradeGoldToPlatinum(23,3));
+        assertEquals("Successfully downgraded from Gold to Platinum",Yves.upgradeGoldToPlatinum(ID,5));
     }
 
+    /**
+     * This test method covers the downgradeGoldToPlatinum method of The SectionChief Class.
+     *
+     * It tests, if the method fails to upgrade a customer return an error String, if the input ID is an non existing CustomerID.
+     * @param ID
+     * @param c2
+     */
+    void downgradeGoldToRegularNonValidIDTest(int ID,Customer c2){
+        SectionChief Yves = new SectionChief("Yves", "Boutellier");
+        Yves.addCustomer(c2);
+        assertEquals("No costumer with this ID found",Yves.downgradeGoldToRegular(ID,3));
+    }
 
+    /**
+     * This test covers the downgradeGoldToRegular method of the SectionChief Class.
+     *
+     * It tests, if the method downgradeGoldToRegular return an error String if the input
+     * is not a Golden Customer.
+     * @param ID
+     * @param c2
+     */
+    void downgradeGoldToRegularRegularsInputTest(int ID,Customer c2){
+        SectionChief Yves = new SectionChief("Yves", "Boutellier");
+        Yves.addCustomer(c2);
+        assertEquals("Without a Gold Credit Card this action is invalid",Yves.downgradeGoldToRegular(ID,3));
+    }
+
+    /**
+     *This function covers the upgradeGoldToPlatinum(int customerID) function in the SectionChief Class
+     *
+     * It test if the upgrade of a customer is sucessfull by asserting the return String of the function
+     *
+     * @param ID
+     * @param c2
+     */
+    void upgradeGoldToPlatinumTest(int ID,Customer c2) {
+        SectionChief Yves = new SectionChief("Yves", "Boutellier");
+        Yves.addCustomer(c2);
+        assertEquals("Successfully downgraded from Gold to Regular",Yves.upgradeGoldToPlatinum(ID,5));
+    }
+
+    /**
+     * This test method covers the upgradeGoldToPlatinum method of The SectionChief Class.
+     *
+     * It tests, if the method fails to upgrade a customer return an error String, if the input ID is an non existing CustomerID.
+     * @param ID
+     * @param c2
+     */
+    void upgradeGoldToPlatinumNonValidIDTest(int ID,Customer c2){
+        SectionChief Yves = new SectionChief("Yves", "Boutellier");
+        Yves.addCustomer(c2);
+        assertEquals("No costumer with this ID found",Yves.upgradeGoldToPlatinum(ID,3));
+    }
+
+    /**
+     * This test covers the upgradeGoldToPlatinum method of the SectionChief Class.
+     *
+     * It tests, if the method upgradeGoldToPlatinum return an error String, if
+     * the input is not a Golden customer.
+     * @param ID
+     * @param c2
+     */
+    void upgradeGoldToPlatinumTestRegularAsInputTest(int ID,Customer c2){
+        SectionChief Yves = new SectionChief("Yves", "Boutellier");
+        Yves.addCustomer(c2);
+        assertEquals("Without a Gold Credit Card this action is invalid",Yves.upgradeGoldToPlatinum(ID,3));
+    }
+
+    /*
     void downgradeGoldToRegular() {
         Customer c2 = new Customer("Margherita", "Razzoli", 32,1000);
         StatusCustomer b2 = new GoldenCustomer(c2,3);
@@ -77,6 +146,7 @@ class SectionChiefTest {
 
         assertEquals("No costumer with this ID found",Yves.downgradeGoldToRegular(21,4));
     }
+     */
 
     @Test
     void main(){
@@ -90,9 +160,14 @@ class SectionChiefTest {
         Customer c2 = new Customer("Margherita", "Razzoli", 32,1000);
         StatusCustomer b2 = new GoldenCustomer(c2,3);
 
-        upgradeGoldToPlatinumTest(c2);
-        upgradeGoldToPlatinumTestRegularAsInput(c4);
-        downgradeGoldToRegular();
+        upgradeGoldToPlatinumTest(c2.getCustomerID(),c2);
+        upgradeGoldToPlatinumTestRegularAsInputTest(c4.getCustomerID(),c4);
+        upgradeGoldToPlatinumNonValidIDTest(1000,c2);
+
+        downgradeGoldToRegularTest(c2.getCustomerID(),c2);
+        downgradeGoldToRegularRegularsInputTest(c4.getCustomerID(),c4);
+        downgradeGoldToRegularNonValidIDTest(1000,c2);
+        
         assertTrue(true);
     }
 }
