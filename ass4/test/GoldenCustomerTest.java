@@ -17,9 +17,5 @@ class GoldenCustomerTest {
         Sarah.payment_wBankTransfer(5000);
         assertEquals(4000,SarahOggi.getSavings());}
 
-    @Test
-    void main(){
-        GoldCustomer();
-        assertTrue(true);
+
     }
-}

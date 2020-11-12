@@ -5,14 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SectionChiefTest {
 
-    @Test
+
     void constructorTest(String name, String surname){
         SectionChief sectionChief = new SectionChief(name, surname);
         assertEquals(name, sectionChief.getName());
         assertEquals(surname,sectionChief.getSurname());
     }
 
-    @Test
+
     void setCityTest(String city) {
         SectionChief sectionChief = new SectionChief("Club", "Mate");
         SectionChief sectionChief2 = new SectionChief("Coca", "Cola");
@@ -20,7 +20,7 @@ class SectionChiefTest {
         assertEquals("This city is already taken",sectionChief2.setCity(city));
     }
 
-    @Test
+
     void upgradeGoldToPlatinum() {
         Customer c2 = new Customer("Margherita", "Razzoli", 32,1000);
         StatusCustomer b2 = new GoldenCustomer(c2,3);
@@ -36,7 +36,7 @@ class SectionChiefTest {
         assertEquals("No costumer with this ID found",Yves.upgradeGoldToPlatinum(23,3));
     }
 
-    @Test
+
     void downgradeGoldToRegular() {
         Customer c2 = new Customer("Margherita", "Razzoli", 32,1000);
         StatusCustomer b2 = new GoldenCustomer(c2,3);
@@ -55,6 +55,7 @@ class SectionChiefTest {
 
     @Test
     void main(){
+        constructorTest("Hannes", "Meili");
         upgradeGoldToPlatinum();
         downgradeGoldToRegular();
         assertTrue(true);

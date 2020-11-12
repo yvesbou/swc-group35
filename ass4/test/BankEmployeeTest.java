@@ -13,7 +13,7 @@ class BankEmployeeTest {
         StatusCustomer b2 = new RegularCustomer(tobi,3);
     }
     */
-    @Test
+
     void getCustomerTest(Customer customer,BankEmployee bankEmployee) {
         //Customer customer = new Customer("Elton","John",67,20000000);
         int ID = customer.getCustomerID();
@@ -22,14 +22,14 @@ class BankEmployeeTest {
         int notExistingID = ID +1;
         assertNull(bankEmployee.getCustomer(notExistingID));
     }
-    @Test
+
     void addCustomerTest(Customer customer,BankEmployee bankEmployee) {
         int ID = customer.getCustomerID();
         bankEmployee.addCustomer(customer);
         assertTrue(bankEmployee.getCustomers().contains(customer));
     }
 
-    @Test
+
     void upgradeRegularToGoldTest(Customer regularCustomer,Customer goldenCustomer,Customer platinumCustomer,BankEmployee bankEmployee) {
 
         assertEquals("Successfully upgraded from Regular to Gold",bankEmployee.upgradeRegularToGold(regularCustomer.getCustomerID(),5));

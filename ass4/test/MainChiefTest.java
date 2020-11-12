@@ -38,10 +38,5 @@ class MainChiefTest {
 
     }
 
-    @Test
-    void main(){
-        downgradePlatinumToGold();
-        downgradePlatinumToRegular();
-        assertTrue(true);
-    }
+
 }

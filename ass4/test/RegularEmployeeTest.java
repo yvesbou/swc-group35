@@ -4,27 +4,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RegularEmployeeTest {
 
-    @Test
+
     void checkConstructor(RegularEmployee regularEmployee){
         assertEquals("Choenpel",regularEmployee.getName());
         assertEquals("Emjee",regularEmployee.getSurname());
     }
 
-    @Test
+
     void addCustomerTest(RegularEmployee regularEmployee, Customer customer){
         int id = customer.getCustomerID();
         regularEmployee.addCustomer(customer);
         assertEquals(customer,regularEmployee.getCustomer(id));
     }
 
-    @Test
+
     void getCustomerTest(RegularEmployee regularEmployee, Customer customer){
         int id = customer.getCustomerID();
         regularEmployee.addCustomer(customer);
         assertEquals(customer,regularEmployee.getCustomer(id));
     }
 
-    @Test
+
     void upgradeRegularToGoldTest(Customer regularCustomer,Customer goldenCustomer,Customer platinumCustomer,BankEmployee bankEmployee){
         assertEquals("Successfully upgraded from Regular to Gold",bankEmployee.upgradeRegularToGold(regularCustomer.getCustomerID(),5));
 

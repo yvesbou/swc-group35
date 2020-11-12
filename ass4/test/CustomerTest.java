@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
 
-    @Test
+
     void constructorTest(String name, String surname, int age,
                          float savings){
         Customer customer = new Customer(name,surname,age,savings);

@@ -16,10 +16,6 @@ class PlatinumCustomerTest {
         ShiChi.payment_wBankTransfer(5000);
         assertEquals(4000,ShiChiLiu.getSavings());}
 
-    @Test
-    void main(){
-        PlatinumCustomer();
-        assertTrue(true);
-    }
+
 }
 

@@ -4,14 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ChiefOfStaffTest {
 
-    @Test
+
     void getNewIDTest() {
         int firstID = ChiefOfStaff.getNewID();
         int secondID =  ChiefOfStaff.getNewID();
         assertFalse(firstID== secondID);
     }
 
-    @Test
+
     void isCityTakenTest(String city) {
         assertFalse(ChiefOfStaff.isCityTaken(city));
         ChiefOfStaff.addCity(city);
@@ -19,7 +19,7 @@ class ChiefOfStaffTest {
 
     }
 
-    @Test
+
     void addCityTest(String city) {
         String message;
         message = ChiefOfStaff.addCity(city);

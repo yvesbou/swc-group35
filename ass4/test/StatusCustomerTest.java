@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StatusCustomerTest {
 
-    @Test
+
     void deposit(float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
@@ -12,7 +12,7 @@ class StatusCustomerTest {
         assertEquals(amount+2000,NicoZala.getSavings());
     }
 
-    @Test
+
     void withdraw(float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
@@ -22,7 +22,7 @@ class StatusCustomerTest {
 
     }
 
-    @Test
+
     void payment_wCreditCard(CreditCard card, float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
@@ -30,7 +30,7 @@ class StatusCustomerTest {
         assertEquals(2000-amount,NicoZala.getSavings());
     }
 
-    @Test
+
     void payment_wBankTransfer(float amount) {
         Customer NicoZala = new Customer("Nico","Zala",22,2000);
         StatusCustomer Nico = new GoldenCustomer(NicoZala,3);
