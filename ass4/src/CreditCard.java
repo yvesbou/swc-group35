@@ -39,7 +39,7 @@ public abstract class CreditCard{
         c.add(Calendar.YEAR, years);
         this.ExpirationDate = c.getTime();
     };
-    public abstract void setLimit();
+    protected abstract void setLimit();
 
     // getters //
     public String getName(){

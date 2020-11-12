@@ -4,7 +4,7 @@ public class CreditCardPlatinum extends CreditCard {
         super(y, name, surname);
         setLimit();
     }
-    public void setLimit() {
+    protected void setLimit() {
         this.limit = 10000;
     }
     public int getLimit(){ return limit;}
