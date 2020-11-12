@@ -3,16 +3,26 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * This test class covers the methods of the SectionChief class
+ */
 class SectionChiefTest {
 
-
+    /**
+     * This method covers the constructor of the SectionChief Class
+     *
+     * It test if all the constructor arguments are correctly set as attributes inside
+     * the instance of the Section chief Class.
+     * @param name
+     * @param surname
+     */
     void constructorTest(String name, String surname){
         SectionChief sectionChief = new SectionChief(name, surname);
         assertEquals(name, sectionChief.getName());
         assertEquals(surname,sectionChief.getSurname());
     }
 
-
+    
     void setCityTest(String city) {
         SectionChief sectionChief = new SectionChief("Club", "Mate");
         SectionChief sectionChief2 = new SectionChief("Coca", "Cola");

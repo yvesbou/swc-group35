@@ -36,19 +36,22 @@ public abstract class StatusCustomer {
             customer.setSavings(newSavings);
             return amount;}
     }
-    public void payment_wCreditCard(CreditCard card, float amount){
+    public String payment_wCreditCard(CreditCard card, float amount){
+        String s = "payment successful";
         if (this.card.isExpired()){
-            System.out.println("The card is expired, please make an appointment with your Customer Consultant");
+            s="The card is expired, please make an appointment with your Customer Consultant";
         }
         else{
             int limit = this.card.getLimit();
             if (limit < amount){
+                s = "You are not allowed to withdraw more than your limit";
                 System.out.println("You are not allowed to withdraw more than your limit");
             }else{
                 float newSavings = customer.getSavings()-amount;
                 customer.setSavings(newSavings);
             }
         }
+        return s;
     };
     public void payment_wBankTransfer(float amount){
         if (customer.getSavings()-amount >0){

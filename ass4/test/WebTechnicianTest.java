@@ -2,6 +2,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+/**
+ * This is the test class for the WebTechnician class and all it's methods.
+ */
 class WebTechnicianTest {
 
     /**
