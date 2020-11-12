@@ -15,8 +15,8 @@ public class Customer {
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.bankAccountNumber = ChiefOfCustomers.getNewBankAccountNumber();
-        this.customerID = ChiefOfCustomers.getNewCustomerID();
+        this.bankAccountNumber = CustomerSystem.getNewBankAccountNumber();
+        this.customerID = CustomerSystem.getNewCustomerID();
         this.savings = savings;
     }
     //GETTERS

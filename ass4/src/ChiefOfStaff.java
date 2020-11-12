@@ -8,7 +8,17 @@ public abstract class ChiefOfStaff {
     public static boolean isCityTaken(String city){
         return takenCities.contains(city);
     }
-    public static void addCity(String city){
-        takenCities.add(city);
+    public static String addCity(String city){
+        String s;
+        if (!isCityTaken(city)) {
+            takenCities.add(city);
+            s = "Successfully added new City";
+            System.out.println(s);
+        }
+        else{
+            s = "This city is already taken.";
+            System.out.println(s);
+        }
+        return s;
     }
 }
