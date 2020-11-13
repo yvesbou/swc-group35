@@ -1,3 +1,5 @@
+//done
+
 public class PlatinumCustomer extends StatusCustomer {
     public PlatinumCustomer(Customer customer,
                             int y){

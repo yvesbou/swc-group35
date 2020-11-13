@@ -1,3 +1,5 @@
+//done
+
 public class RegularCustomer extends StatusCustomer {
 
     public RegularCustomer(Customer customer,

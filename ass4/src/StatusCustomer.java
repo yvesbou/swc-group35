@@ -1,3 +1,5 @@
+//done
+
 public abstract class StatusCustomer {
 
     private CreditCard card;
