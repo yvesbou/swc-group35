@@ -50,6 +50,18 @@ class RegularEmployeeTest {
      *
      * it tests, if the method return an error String, if the input is a golden Customer.
      *
+     * @param platinumCustomer
+     * @param regularEmployee
+     */
+    void upgradeRegularToGoldWithPlatinumCustomerInputTest(Customer platinumCustomer,RegularEmployee regularEmployee){
+        assertEquals("Without a Regular Credit Card this action is invalid",regularEmployee.upgradeRegularToGold(platinumCustomer.getCustomerID(),3));
+    }
+
+    /**
+     * This test method covers the upgrade RegularToGold method of the Regular Employee Class
+     *
+     * it tests, if the method return an error String, if the input is a golden Customer.
+     *
      * @param goldenCustomer
      * @param regularEmployee
      */
@@ -85,8 +97,11 @@ class RegularEmployeeTest {
         // tests
         checkConstructor(Emjee);
         addCustomerTest(Emjee,ZoeSchmid);
+        addCustomerTest(Emjee,HaraldSchmidt);
+        addCustomerTest(Emjee,BarackObama);
         upgradeRegularToGoldTest(ZoeSchmid,Emjee);
         upgradeRegularToGoldWithGoldCustomerInputTest(HaraldSchmidt,Emjee);
+        upgradeRegularToGoldWithPlatinumCustomerInputTest(BarackObama,Emjee);
         upgradeRegularToGoldWithInvalidID(ZoeSchmid,Emjee);
         assertTrue(true);
     }

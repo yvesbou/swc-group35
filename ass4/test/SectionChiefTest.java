@@ -59,7 +59,7 @@ class SectionChiefTest {
     void downgradeGoldToRegularTest(int ID,Customer c2) {
         SectionChief Yves = new SectionChief("Yves", "Boutellier");
         Yves.addCustomer(c2);
-        assertEquals("Successfully downgraded from Gold to Platinum",Yves.upgradeGoldToPlatinum(ID,5));
+        assertEquals("Successfully downgraded from Gold to Regular",Yves.downgradeGoldToRegular(ID,5));
     }
 
     /**
@@ -100,7 +100,7 @@ class SectionChiefTest {
     void upgradeGoldToPlatinumTest(int ID,Customer c2) {
         SectionChief Yves = new SectionChief("Yves", "Boutellier");
         Yves.addCustomer(c2);
-        assertEquals("Successfully downgraded from Gold to Regular",Yves.upgradeGoldToPlatinum(ID,5));
+        assertEquals("Successfully upgraded from Gold to Platinum",Yves.upgradeGoldToPlatinum(ID,5));
     }
 
     /**
@@ -151,7 +151,7 @@ class SectionChiefTest {
     @Test
     void main(){
         constructorTest("Hannes", "Meili");
-        setCityTest("Paris");
+        setCityTest("Stockholm");
         setSameCityTwiceTest("Riga");
 
         Customer c4 = new Customer("Wenjie", "He", 26, 1500);
@@ -164,7 +164,9 @@ class SectionChiefTest {
         upgradeGoldToPlatinumTestRegularAsInputTest(c4.getCustomerID(),c4);
         upgradeGoldToPlatinumNonValidIDTest(1000,c2);
 
-        downgradeGoldToRegularTest(c2.getCustomerID(),c2);
+        Customer c5 = new Customer("Margherita", "Razzoli", 32,1000);
+        StatusCustomer b5 = new GoldenCustomer(c5,3);
+        downgradeGoldToRegularTest(c5.getCustomerID(),c5);
         downgradeGoldToRegularRegularsInputTest(c4.getCustomerID(),c4);
         downgradeGoldToRegularNonValidIDTest(1000,c2);
 

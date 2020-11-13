@@ -110,7 +110,9 @@ class MainChiefTest {
         downgradePlatinumToRegularWithInvalidID(c2);
         downgradePlatinumToRegularWithRegularAsInput(c1);
 
-        downgradePlatinumToGoldTest(c2);
+        Customer c3 = new Customer("Margherita", "Razzoli", 32,1000);
+        StatusCustomer b3 = new PlatinumCustomer(c3,3);
+        downgradePlatinumToGoldTest(c3);
         downgradePlatinumToGoldWithInvalidIDTest(c2);
         downgradePlatinumToGoldWithRegularAsInputTest(c1);
 
