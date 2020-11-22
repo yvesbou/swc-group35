@@ -8,7 +8,7 @@ no common functionality apart from getters and setters.
 ####Employees:
 We decided, that the abstract Class BankEmployee is the parent class
 of The RegularEmployee and the RegularEmployee is the parent class of
-the SectionChief and the SectionChief is the parent class of the Main Chief.
+the SectionChief and the SectionChief is the parent class of the Main_Ex2 Chief.
 We decided use inheritance here, because almost all methods of the parent
 are also used in the child. MainChief for example can use the upgrade and
 downgrade functions of his ancestors. BankEmployee is a BaseClass, which
