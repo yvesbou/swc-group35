@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class Bakery extends Facility{
     String name;
@@ -7,5 +8,8 @@ public abstract class Bakery extends Facility{
     public void printName() {
         System.out.println(name);
     }
+
+    public Iterator createIterator() {
+        return null; }
 
 }
