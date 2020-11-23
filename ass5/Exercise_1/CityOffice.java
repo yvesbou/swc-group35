@@ -9,14 +9,24 @@ public class CityOffice extends Office {
         name = "city office of " + city;
     }
 
+    @Override
     public void printAllBakeriesNames(){
         Iterator iterator = facilities.iterator();
         while (iterator.hasNext()) {
             Facility facility = (Facility) iterator.next();
-            facility.printName(); }
+            facility.print(); }
     }
 
+    @Override
     public void printName(){
-        System.out.println(name);
+        System.out.println(name + ", ");
+    }
+
+    @Override
+    public void print(){
+        
+        printName();
+        printAllBakeriesNames();
+        System.out.println();
     }
 }

@@ -11,6 +11,7 @@ public abstract class Office extends Facility{
         return new CompositeIterator(facilities.iterator());
     }
 
+    @Override
     public void print(){
         Iterator iterator = facilities.iterator();
         while (iterator.hasNext()) {
