@@ -35,6 +35,7 @@ public class CompositeIterator implements Iterator {
         }
     }
 
+    @Override
     public void remove(){
         throw new UnsupportedOperationException();
     }
