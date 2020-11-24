@@ -7,7 +7,7 @@ public class CEO {
 
     /**
      * The CEO gets initialized all entities with form a tree like company structure.
-     * @param allEntities
+     * @param allEntities: a facility should be passed in that is at the top of the companies structure, type Facility
      */
     public CEO(Facility allEntities){
         this.allEntities = allEntities;

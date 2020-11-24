@@ -8,7 +8,7 @@ public abstract class ToppingsDecorator extends Cake{
 
     /**
      * The constructor is called by the single toppings
-     * @param cake: cake the decorator should decorate
+     * @param cake: cake the decorator should decorate, type Cake
      */
     public ToppingsDecorator(Cake cake){
         this.cake = cake;
@@ -16,7 +16,7 @@ public abstract class ToppingsDecorator extends Cake{
 
     /**
      * This function is abstract and should be implemented by the single toppings
-     * @return double
+     * @return nothing since abstract
      */
     public abstract double cost();
 }

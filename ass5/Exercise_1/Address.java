@@ -12,10 +12,10 @@ public class Address {
 
     /**
      * A bakery has the following address components:
-     * @param street
-     * @param streetNum
-     * @param postalCode
-     * @param city
+     * @param street: street to be added to the address, type String
+     * @param streetNum: street number to be added to the address, type int
+     * @param postalCode: postal code to be added to the address, type int
+     * @param city: city to be added to the address, type String
      */
     public Address(String street, int streetNum, int postalCode, String city){
         this.city = city;

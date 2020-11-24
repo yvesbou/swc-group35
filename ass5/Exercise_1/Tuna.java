@@ -7,7 +7,7 @@ public class Tuna extends FillingsDecorator{
 
     /**
      * The Tuna class is initialized with a sandwich and calling the constructor of the FillingsDecorator.
-     * @param sandwich: the tuna should decorate
+     * @param sandwich: sandwich the tuna should decorate, type Sandwich
      */
     public Tuna(Sandwich sandwich){
         super(sandwich);
@@ -15,7 +15,7 @@ public class Tuna extends FillingsDecorator{
 
     /**
      * Overrides the method cost from the FillingsDecorator
-     * @return the price of the tuna + the cost of the FillingsDecorator, makes sure all prices are count together
+     * @return the price of the tuna + the cost of the FillingsDecorator, makes sure all prices are count together, type double
      */
     @Override
     public double cost(){

@@ -8,7 +8,7 @@ public abstract class FillingsDecorator extends Sandwich{
 
     /**
      * The constructor is called by the single fillings
-     * @param sandwich: sandwich the decorator should decorate
+     * @param sandwich: sandwich the decorator should decorate, type Sandwich
      */
     public FillingsDecorator(Sandwich sandwich){
         this.sandwich = sandwich;
@@ -16,7 +16,7 @@ public abstract class FillingsDecorator extends Sandwich{
 
     /**
      * This function is abstract and should be implemented by the single fillings
-     * @return double
+     * @return nothing since abstract
      */
     public abstract double cost();
 }

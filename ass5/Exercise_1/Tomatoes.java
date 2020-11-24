@@ -7,7 +7,7 @@ public class Tomatoes extends FillingsDecorator{
 
     /**
      * The Tomatoes class is initialized with a sandwich and calling the constructor of the FillingsDecorator.
-     * @param sandwich: the tomatoes should decorate
+     * @param sandwich: sandwich the tomatoes should decorate, type Sandwich
      */
     public Tomatoes(Sandwich sandwich){
         super(sandwich);
@@ -15,7 +15,7 @@ public class Tomatoes extends FillingsDecorator{
 
     /**
      * Overrides the method cost from the FillingsDecorator
-     * @return the price of the tomatoes + the cost of the FillingsDecorator, makes sure all prices are count together
+     * @return the price of the tomatoes + the cost of the FillingsDecorator, makes sure all prices are count together, type double
      */
     @Override
     public double cost(){

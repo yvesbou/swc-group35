@@ -7,7 +7,7 @@ public class Bread extends Sandwich {
 
     /**
      * The function should return a price for a bread.
-     * @return double
+     * @return the cost of the bread, type double
      */
     @Override
     public double cost() {

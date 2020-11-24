@@ -8,7 +8,7 @@ public class RawCake extends Cake{
 
     /**
      * Overrides the method cost from the Cake
-     * @return the price of the RawCake
+     * @return the price of the RawCake, type double
      */
     @Override
     public double cost() {

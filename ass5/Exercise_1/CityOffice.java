@@ -10,7 +10,7 @@ public class CityOffice extends Office {
 
     /**
      * Constructor of the City Office
-     * @param city: the city that the office is based in and all the bakeries associated with
+     * @param city: the city that the office is based in and all the bakeries associated with, type String
      */
     public CityOffice(String city){
         this.city = city;

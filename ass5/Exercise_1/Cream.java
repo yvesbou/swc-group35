@@ -7,7 +7,7 @@ public class Cream extends ToppingsDecorator {
 
     /**
      * The constructor calls the ToppingsDecorator constructor
-     * @param cake: the cake the cream is decorating
+     * @param cake: the cake the cream is decorating, type Cake
      */
     public Cream(Cake cake){
         super(cake);
@@ -15,7 +15,7 @@ public class Cream extends ToppingsDecorator {
 
     /**
      * Overrides the method cost from the ToppingsDecorator
-     * @return the price of the cream + the cost of the ToppingsDecorator, makes sure all prices are count together
+     * @return the price of the cream + the cost of the ToppingsDecorator, makes sure all prices are count together, type double
      */
     @Override
     public double cost(){

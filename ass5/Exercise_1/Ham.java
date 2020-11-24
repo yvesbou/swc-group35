@@ -7,7 +7,7 @@ public class Ham extends FillingsDecorator {
 
     /**
      * The Ham class is initialized with a sandwich and calling the constructor of the FillingsDecorator.
-     * @param sandwich: the ham should decorate
+     * @param sandwich: sandwich the ham should decorate, type Sandwich
      */
     public Ham(Sandwich sandwich){
         super(sandwich);

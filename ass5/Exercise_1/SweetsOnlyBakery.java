@@ -6,8 +6,8 @@
 public class SweetsOnlyBakery extends Bakery{
     /**
      * A bakery should have an address and a name.
-     * @param address: each bakery should have an address
-     * @param name: each bakery should have a name
+     * @param address: each bakery should have an address, type Address
+     * @param name: each bakery should have a name, type String
      */
     public SweetsOnlyBakery(Address address, String name){
         this.name = name;
