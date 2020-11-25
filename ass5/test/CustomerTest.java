@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.util.Date;
 
@@ -8,14 +9,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * This test class contains test covering the Customer Class.
+ * It test tests, if exceptions are thrown correctly but also, if the implementation works.
  */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class CustomerTest {
     Customer customer;
     Vehicle bus;
     Vehicle microCar;
     Vehicle supercar;
     Vehicle familyCar;
-    Vehicle incorrectImplementedVehicle;
+    IncorrectImplementedVehicle incorrectImplementedVehicle;
     Date date;
 
 
@@ -30,29 +33,65 @@ class CustomerTest {
          *This is the getter for the speed field.
          * @return a null pointer
          */
+        private String speed = null;
+        private String name = null;
+        private String bagsAllowed = null;
+        private String price = null;
         public String getSpeed(){
-            return null;
+            return speed;
         }
         /**
          *This is the getter for the name field.
          * @return a null pointer
          */
         public String getName(){
-            return null;
+            return name;
         }
         /**
          *This is the getter for the bagsAllow field.
          * @return a null pointer
          */
         public String getBagsAllowed(){
-            return null;
+            return bagsAllowed;
         }
         /**
          *This is the getter for the price field.
          * @return a null pointer
          */
         public String getPrice(){
-            return null;
+            return price;
+        }
+
+        /**
+         * This is a setter for the speed field
+         * @param speed new speed to set
+         */
+        public void setSpeed(String speed) {
+            this.speed = speed;
+        }
+
+        /**
+         * This is a setter for the name field.
+         * @param name the new name to set.
+         */
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        /**
+         * This is setter for the bagsAllowed field
+         * @param bagsAllowed the new bagsAllowed field.
+         */
+        public void setBagsAllowed(String bagsAllowed) {
+            this.bagsAllowed = bagsAllowed;
+        }
+
+        /**
+         * This is a setter for the price field.
+         * @param price the new price to set
+         */
+        public void setPrice(String price) {
+            this.price = price;
         }
     }
     /**
@@ -83,6 +122,7 @@ class CustomerTest {
     void rideTestNullPointerInput(Vehicle vehicle, Date date){
         try{
             customer.ride(vehicle, date);
+            fail("nullPointerException should be thrown");
         }
         catch (NullPointerException e){
             assertTrue(true);
@@ -90,7 +130,6 @@ class CustomerTest {
         catch (NullFieldException e){
             fail("NullFieldException should not be thrown");
         }
-        fail("no NullPointerException expected");
     }
 
     /**
@@ -114,6 +153,14 @@ class CustomerTest {
         }
     }
 
+    /**
+     * This test test if a nullFieldException is thrown, if the getters of the Vehicle argument to the
+     * ride method of the customer class returns null in a getter.
+     *
+     * @param vehicle This is an instance of type Vehicle (no NullPointer). But the getters of the Vehicle are
+     *                not implemented correclty and return a NullPointer
+     * @param date This is a instance of class Date (not Null)
+     */
     void rideTestNullFieldException(Vehicle vehicle,Date date){
 
         try{
@@ -143,10 +190,36 @@ class CustomerTest {
         rideTestCorrectInput(familyCar, date);
         rideTestCorrectInput(microCar, date);
 
+        incorrectImplementedVehicle.setName(null);
+        incorrectImplementedVehicle.setBagsAllowed(null);
+        incorrectImplementedVehicle.setPrice(null);
+        incorrectImplementedVehicle.setSpeed(null);
         rideTestNullFieldException(incorrectImplementedVehicle,date);
-
-
-
+        incorrectImplementedVehicle.setName("name");
+        incorrectImplementedVehicle.setBagsAllowed("1");
+        incorrectImplementedVehicle.setPrice("5 CHF");
+        incorrectImplementedVehicle.setSpeed(null);
+        rideTestNullFieldException(incorrectImplementedVehicle,date);
+        incorrectImplementedVehicle.setName("name");
+        incorrectImplementedVehicle.setBagsAllowed("1");
+        incorrectImplementedVehicle.setPrice(null);
+        incorrectImplementedVehicle.setSpeed("fast");
+        rideTestNullFieldException(incorrectImplementedVehicle,date);
+        incorrectImplementedVehicle.setName("name");
+        incorrectImplementedVehicle.setBagsAllowed(null);
+        incorrectImplementedVehicle.setPrice("5 Chf");
+        incorrectImplementedVehicle.setSpeed("fast");
+        rideTestNullFieldException(incorrectImplementedVehicle,date);
+        incorrectImplementedVehicle.setName(null);
+        incorrectImplementedVehicle.setBagsAllowed("1");
+        incorrectImplementedVehicle.setPrice("5 Chf");
+        incorrectImplementedVehicle.setSpeed("fast");
+        rideTestNullFieldException(incorrectImplementedVehicle,date);
+        incorrectImplementedVehicle.setName(null);
+        incorrectImplementedVehicle.setBagsAllowed("1");
+        incorrectImplementedVehicle.setPrice(null);
+        incorrectImplementedVehicle.setSpeed("fast");
+        rideTestNullFieldException(incorrectImplementedVehicle,date);
     }
 
     /**
@@ -160,6 +233,7 @@ class CustomerTest {
         bus = null;
         familyCar = null;
         date = null;
+        incorrectImplementedVehicle=null;
     }
 
 

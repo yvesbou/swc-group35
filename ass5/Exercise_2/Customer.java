@@ -17,7 +17,7 @@ public class Customer{
             throw new NullPointerException();
         }
         if (vehicle.getPrice() ==null || vehicle.getBagsAllowed() ==null ||
-        vehicle.getBagsAllowed() ==null || vehicle.getName()==null){
+        vehicle.getSpeed() ==null || vehicle.getName()==null){
             throw new NullFieldException();
         }
         String s = String.format("%s; %s; %s; %s",vehicle.getName(),vehicle.getBagsAllowed()
