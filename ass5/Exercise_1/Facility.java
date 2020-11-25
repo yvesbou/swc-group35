@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -47,7 +48,7 @@ public abstract class Facility {
      * normal bakeries and bread-only-bakeries should implement this function,
      * for all other it should throw an exception
      */
-    public Sandwich SellBreads(){
+    public Sandwich SellBreads(ArrayList lis) throws WeSellSweetsOnlyException {
         throw new UnsupportedOperationException();
     }
 
@@ -55,7 +56,7 @@ public abstract class Facility {
      * normal bakeries and sweet-only-bakeries should implement this function,
      * for all other it should throw an exception
      */
-    public Cake SellSweets(){
+    public Cake SellSweets(ArrayList lis) throws WeSellBreadOnlyException {
         throw new UnsupportedOperationException();
     }
 

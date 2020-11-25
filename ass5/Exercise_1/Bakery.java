@@ -34,21 +34,55 @@ public abstract class Bakery extends Facility{
     }
 
     /**
-     * not implemented yet
-     * @param list
-     * @return
+     * This function returns a delicious sandwich with the fillings the consumer wants to have
+     * @param aList: list of ingredients the consumer wants in his/her sandwich, type ArrayList
+     * @return sandwich the consumer ordered, type Sandwich
      */
-    public Sandwich SellBreads(ArrayList list){
-        throw new UnsupportedOperationException();
-    }
+    @Override
+    public Sandwich SellBreads(ArrayList aList) throws WeSellSweetsOnlyException {
+        Sandwich sandwich = new Bread();
+
+        for (Object i:aList){
+            switch ((String)i){
+                case "Cheese":
+                    sandwich = new Cheese(sandwich);
+                    break;
+                case "Tuna":
+                    sandwich = new Tuna(sandwich);
+                    break;
+                case "Ham":
+                    sandwich = new Ham(sandwich);
+                    break;
+                case "Tomatoes":
+                    sandwich = new Tomatoes(sandwich);
+                    break;
+            }
+        }
+        return sandwich;
+    };
 
     /**
-     * not implemented yet
-     * @param list
-     * @return
+     * This function returns a delicious cake with the toppings the consumer wants to have
+     * @param aList: list of ingredients the consumer wants on this/her cake, type ArrayList
+     * @return cake the consumer ordered, type Cake
      */
-    public Cake SellSweets(ArrayList list){
-        throw new UnsupportedOperationException();
+    public Cake SellSweets(ArrayList aList) throws WeSellBreadOnlyException {
+        Cake cake = new RawCake();
+
+        for (Object i:aList){
+            switch ((String)i){
+                case "Chocolate":
+                    cake = new Chocolate(cake);
+                    break;
+                case "Strawberries":
+                    cake = new Strawberries(cake);
+                    break;
+                case "Cream":
+                    cake = new Cream(cake);
+                    break;
+            }
+        }
+        return cake;
     }
 
 }
