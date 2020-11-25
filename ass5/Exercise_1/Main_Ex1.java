@@ -48,14 +48,33 @@ public class Main_Ex1 {
     CEO ceo = new CEO(centraloffice);
     ceo.printAllEntities();
 
-    List<String> list=new ArrayList<String>();
+    ArrayList<String> list=new ArrayList<String>();
     list.add("Cheese");
     list.add("Cheese");
     list.add("Tuna");
-    //bakery1.SellBreads(list);
+    Sandwich sandwich_wTuna_wCheese = null;
+    try {
+        sandwich_wTuna_wCheese = bakery1.SellBreads(list);
+    } catch (WeSellSweetsOnlyException e) {
+        System.out.println("It was worth a try to see if they have a delicious cake");
+    }
 
-    Sandwich sandwich_wTuna_wCheese = new Cheese(new Cheese(new Tuna(new Bread())));
-    Cake cake_wTopping = new Chocolate(new Chocolate(new Chocolate(new RawCake())));
+    ArrayList<String> sweetList=new ArrayList<String>();
+    sweetList.add("Chocolate");
+    sweetList.add("Chocolate");
+    Cake cake_wTopping = null;
+    try {
+        cake_wTopping = bakery6.SellSweets(sweetList);
+    } catch (WeSellBreadOnlyException e) {
+        System.out.println("It was worth a try to see if they have a delicious sandwich");
+    }
+
+    try {
+        Cake doTheyEvenHave_aCake = bakery3.SellSweets(sweetList);
+    } catch (WeSellBreadOnlyException e) {
+        System.out.println("It was worth a try to see if they have a delicious sandwich");
+    }
+
     System.out.println(sandwich_wTuna_wCheese.cost());
     System.out.println(cake_wTopping.cost());
 }}

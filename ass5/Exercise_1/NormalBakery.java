@@ -14,24 +14,4 @@ public class NormalBakery extends Bakery {
         this.name = name;
         this.address = address;
     }
-
-    /**
-     * A NormalBakery should be able to sell breads. (not implemented yet)
-     * @return
-     */
-    @Override
-    public Sandwich SellBreads(){
-        // don't know how to implement sell yet
-        return null;
-    };
-
-    /**
-     * A NormalBakery should be able to sell sweets. (not implemented yet)
-     * @return
-     */
-    @Override
-    public Cake SellSweets(){
-        // don't know how to implement sell yet
-        return null;
-    }
 }
