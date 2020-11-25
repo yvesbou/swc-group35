@@ -10,7 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class CustomerTest {
     Customer customer;
-    Vehicle vehicle;
+    Vehicle bus;
+    Vehicle microCar;
+    Vehicle supercar;
+    Vehicle familyCar;
     Date date;
 
     /**
@@ -19,7 +22,10 @@ class CustomerTest {
     @BeforeAll()
     void setup(){
         customer = new Customer();
-        vehicle = new MicroCar();
+        microCar = new MicroCar();
+        supercar = new Supercar();
+        bus = new Bus();
+        familyCar = new FamilyCar();
         date = new Date();
     }
 
@@ -34,7 +40,7 @@ class CustomerTest {
      * @param date this can be a valid instance of Date or
      *            a null pointer for testing the throw of the NullPointerException.
      */
-    void testNullPointerInput(Vehicle vehicle, Date date){
+    void rideTestNullPointerInput(Vehicle vehicle, Date date){
         try{
             customer.ride(vehicle, date);
         }
@@ -43,15 +49,21 @@ class CustomerTest {
         }
         fail("no NullPointerException expected");
     }
+    void rideTestCorrectInput(Vehicle vehicle, Date date){
+        assertEquals("Bus; as much bags as you want; slow; 5CHF",customer.ride(vehicle, date));
+    }
 
     /**
      * This is the Test method, that runs all the test of this test class.
      */
     @Test
     void main(){
-        testNullPointerInput(vehicle,null);
-        testNullPointerInput(null,date);
-        testNullPointerInput(null,null);
+        rideTestNullPointerInput(supercar,null);
+        rideTestNullPointerInput(null,date);
+        rideTestNullPointerInput(null,null);
+        
+        rideTestCorrectInput(supercar,date);
+
     }
 
 
