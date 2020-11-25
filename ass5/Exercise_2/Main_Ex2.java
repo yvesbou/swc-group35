@@ -18,6 +18,10 @@ public class Main_Ex2 {
             System.out.println(e);
             System.exit(1);
         }
+        catch (NullFieldException e){
+            System.out.println(e);
+            System.exit(1);
+        }
     }
 
 }
