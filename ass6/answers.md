@@ -1,3 +1,5 @@
+answers.md to exercise 2
+
 Requirements of ShoppingPlatform:
 Requirements are that the ShoppingPlatform has a SearchBar, UserProfiles and Products.
 The ShoppingPlatform has the responsibility to provide functions that the UserProfile can interact with the ShoppingPlatform nameingly login, checkout and leavePlatform. 
